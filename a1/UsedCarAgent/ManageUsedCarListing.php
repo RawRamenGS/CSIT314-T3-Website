@@ -23,7 +23,7 @@
     </nav>
 
     <div>
-        <a href="#" class="back-button">&lt; Back</a>
+        <a href="#" class="backBtn">&lt; Back</a>
         <div class="tableDiv">
             <div class="search-container">
                 <input type="text" placeholder="Search" class="searchTxt">

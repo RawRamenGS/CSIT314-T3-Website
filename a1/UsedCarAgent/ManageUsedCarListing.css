@@ -62,7 +62,7 @@ h1 {
     text-decoration: underline;
 }
 
-.back-button {
+.backBtn {
     display: inline-block;
     margin: 10px 0;
     color: #000;
@@ -70,7 +70,7 @@ h1 {
     font-size: 16px;
 }
 
-.back-button:hover {
+.backBtn:hover {
     text-decoration: underline;
     color: red;
 }
