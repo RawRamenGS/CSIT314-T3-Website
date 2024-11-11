@@ -11,13 +11,17 @@
         <h1>Seller</h1>
         <div class="user-profile">
             <div class="profile-icon">&#128100;</div>
-            <button class="logoutBtn">Logout</button>
+            <!-- Logout Form -->
+            <!-- <form action="LogoutController.php" method="POST"> -->
+                <button type="submit" class="logoutBtn">Logout</button>
+            </form>
         </div>
     </header>
 
     <nav class="navBar">
-        <a href="ViewSellerListingUI.php" id="listingBtn">Listings</a>
-		<a href="SellerRateReviewUI.php" id="rateReviewBtn">Rate and Review Agents</a>
+		<a href="SellerHomeUI.php" id="SellerHomeBtn">Home</a>
+        <a href="ViewSellerListingUI.php" id="SellerListingBtn">Listings</a> <!-- onSellerListingBtn -->
+		<a href="SellerRateReviewUI.php" id="SellerRateReviewBtn">Rate and Review Agents</a> <!-- onSubmitReviewBtn -->
     </nav>
 
     <div>
