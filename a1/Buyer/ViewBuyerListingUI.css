@@ -1,45 +1,52 @@
-/* General Styles */
-body {
-    font-family: Arial, sans-serif;
+/* Universal Styles */
+* {
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
 }
 
-header {
-    background-color: #333;
-    color: #fff;
+body {
+    background-color: #f7f7f7;
     padding: 20px;
-    position: relative;
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
 }
 
 header h1 {
-    margin: 0;
+    font-size: 24px;
 }
 
 .user-profile {
-    position: absolute;
-    top: 20px;
-    right: 20px;
+    display: flex;
+    align-items: center;
 }
 
-.logout-btn {
-    background-color: #ff4b5c;
-    color: #fff;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    border-radius: 5px;
+.profile-icon {
+    font-size: 24px;
 }
 
-.logout-btn:hover {
-    background-color: #e84351;
+.logoutBtn {
+    padding: 5px 30px;
+    border-radius: 50px;
+}
+
+.logoutBtn:hover {
+    background-color: #d5d4d4;
 }
 
 /* Car Details Section */
 .car-details-section {
     padding: 20px;
     background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .car-details {
@@ -53,11 +60,17 @@ header h1 {
     height: auto;
     margin-bottom: 20px;
     border-radius: 10px;
+    transition: transform 0.2s ease;
+}
+
+.car-image-large:hover {
+    transform: scale(1.05);
 }
 
 .car-details h2 {
     font-size: 28px;
     margin-bottom: 10px;
+    color: #333;
 }
 
 .car-details .price {
@@ -88,6 +101,7 @@ header h1 {
     margin-left: 10px;
     padding: 0;
     display: inline-block;
+    transition: color 0.3s, transform 0.3s;
 }
 
 .heart-btn:hover {

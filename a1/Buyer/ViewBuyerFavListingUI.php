@@ -11,6 +11,7 @@ $cars = [
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Favourite Car Listings</title>
     <link rel="stylesheet" href="ViewBuyerFavListingUI.css">
 </head>
@@ -19,14 +20,17 @@ $cars = [
     <header>
         <h1>Buyer Favourite Car Listings</h1>
         <div class="user-profile">
-            <button class="logout-btn">Logout</button>
+		<div class="profile-icon">&#128100;</div>
+            <button class="logoutBtn">Logout</button>
         </div>
     </header>
 
     <!-- Navigation Tabs -->
-    <nav class="tabs">
-        <a href="SearchBuyerListingUI.php" class="tab">Listing</a>
-        <a href="ViewBuyerFavListingUI.php" class="tab active">Favourites</a>
+    <nav class="navBar">
+		<a href="BuyerHomeUI.php" id="BuyerHomeBtn">Home</a>
+		<a href="SearchBuyerListingUI.php" id="SearchBuyerListingBtn">Listings</a>
+		<a href="ViewBuyerFavListingUI.php" id="ViewBuyerFavListingBtn">Favourites</a>
+		<a href="BuyerRateReviewUI.php" id="BuyerRateReviewBtn">Rate and Review Agents</a>
     </nav>
 
     <!-- Search Section -->

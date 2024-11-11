@@ -1,86 +1,81 @@
-/* General Styles */
-body {
-    font-family: Arial, sans-serif;
+/* Universal Styles */
+* {
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-header {
-    background-color: #333;
-    color: #fff;
+body {
+    background-color: #f7f7f7;
     padding: 20px;
-    position: relative;
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
 }
 
 header h1 {
-    margin: 0;
+    font-size: 24px;
 }
 
 .user-profile {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-}
-
-.logout-btn {
-    background-color: #ff4b5c;
-    color: #fff;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-.logout-btn:hover {
-    background-color: #e84351;
-}
-
-/* Tabs Navigation */
-.tabs {
     display: flex;
-    background-color: #fff;
+    align-items: center;
+}
+
+.profile-icon {
+    font-size: 24px;
+}
+
+.logoutBtn {
+    padding: 5px 30px;
+    border-radius: 50px;
+}
+
+.logoutBtn:hover {
+    background-color: #d5d4d4;
+}
+
+/* Navigation Bar Styles */
+.navBar {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
     border-bottom: 1px solid #ccc;
-    position: relative;
-    z-index: 1;
 }
 
-.tab {
+.navBar a {
+    color: #000;
     flex: 1;
-    padding: 15px;
+    padding: 10px 20px;
+    border: 1px solid;
     text-align: center;
-    font-weight: bold;
-    color: #333;
-    border-right: 1px solid #ccc;
+    text-decoration: none;
 }
 
-.tab:last-child {
-    border-right: none;
+.navBar a:hover {
+    background-color: #eaeaea;
+    border-color: black;
+    color: red;
+    text-decoration: underline;
 }
 
-.tab:hover {
-    background-color: #f1f1f1;
-}
-
-.tab.active {
-    background-color: #ddd;
-}
-
-/* Search Section */
+/* Search Section Styles */
 .search-section {
     padding: 20px;
-    background-color: #fff;
     text-align: center;
+    margin-bottom: 20px;
 }
 
 .search-section p {
     margin-bottom: 10px;
     font-size: 18px;
+    color: #333;
 }
 
 .search-bar {
@@ -94,6 +89,7 @@ header h1 {
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 25px;
+    transition: border-color 0.3s ease;
 }
 
 .search-bar input[type="text"]:focus {
@@ -101,17 +97,17 @@ header h1 {
     border-color: #888;
 }
 
-/* Listings Section */
+/* Listings Section Styles */
 .listings-section {
     padding: 20px;
-    position: relative;
-    z-index: 0;
+    border-radius: 10px;
 }
 
 .listings-section h2 {
     margin-bottom: 20px;
     font-size: 24px;
     text-align: center;
+    color: #333;
 }
 
 .car-list {
@@ -134,12 +130,14 @@ header h1 {
     border: 1px solid #ccc;
     text-align: center;
     border-radius: 10px;
-    transition: transform 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s;
     position: relative;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .car-card:hover {
     transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .car-card img.car-image {
@@ -172,7 +170,7 @@ header h1 {
     margin-right: 5px;
 }
 
-/* Style the heart button */
+/* Heart Button Styles */
 .heart-btn {
     background: none;
     border: none;
@@ -181,6 +179,7 @@ header h1 {
     padding: 0;
     display: inline-block;
     color: #333;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .heart-btn:hover {
@@ -207,30 +206,5 @@ header h1 {
     }
     100% {
         transform: scale(1);
-    }
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .search-bar input[type="text"] {
-        width: 80%;
-    }
-
-    .car-card {
-        width: 45%;
-    }
-}
-
-@media (max-width: 480px) {
-    .search-bar input[type="text"] {
-        width: 100%;
-    }
-
-    .car-card {
-        width: 100%;
-    }
-
-    .logout-btn {
-        padding: 8px 12px;
     }
 }

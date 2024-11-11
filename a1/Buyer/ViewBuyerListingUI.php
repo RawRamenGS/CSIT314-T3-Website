@@ -37,7 +37,8 @@ if (isset($_GET['id'])) {
             <header>
                 <h1>Buyer View Car Listing</h1>
                 <div class="user-profile">
-                    <button class="logout-btn">Logout</button>
+				<div class="profile-icon">&#128100;</div>
+                    <button class="logoutBtn">Logout</button>
                 </div>
             </header>
 
