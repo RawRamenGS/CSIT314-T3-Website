@@ -17,7 +17,6 @@
 
     <nav class="navBar">
         <a href="" id="homeBtn">Home</a>
-        <a href="" id="recentBtn">Recent</a>
         <a href="" id="favBtn">Favourites</a>
         <a hred="" id="listingBtn">Listings</a>
     </nav>
