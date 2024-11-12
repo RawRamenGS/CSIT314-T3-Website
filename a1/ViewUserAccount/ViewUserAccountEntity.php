@@ -11,7 +11,7 @@ class ViewUserAccountEntity {
 
     public function getAllUsers() {
         // Prepare and execute the query to select all users
-        $stmt = $this->conn->prepare("SELECT id, username, email, phonenumber, dob FROM useraccount");
+        $stmt = $this->conn->prepare("SELECT id, username, email, phonenumber, dob, status FROM useraccount");
         $stmt->execute();
         $result = $stmt->get_result();
 

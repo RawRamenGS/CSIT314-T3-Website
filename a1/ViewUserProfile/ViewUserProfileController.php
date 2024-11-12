@@ -1,13 +1,14 @@
 <?php
-    require_once('ViewUserAccountEntity.php');
+    require_once('ViewUserProfileEntity.php');
 
-    class ViewUserAccountController {
+    class ViewUserProfileController {
         public function getAllUsers() {
-            $userEntity = new ViewUserAccountEntity();
+            $userEntity = new ViewUserProfileEntity();
             // Call the entity's method to retrieve all users
             return $userEntity->getAllUsers();
         }
     }
+
 
 
 

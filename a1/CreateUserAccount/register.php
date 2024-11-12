@@ -16,8 +16,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $controller = new CreateUserAccountController();
 
     // Call the controller's method to create an account
-    $result = $controller->createAccount($username, $password, $confirmPassword, $email, $phoneNumber, $dob, $roles);
-
+    // Check if passwords match
+    if ($password !== $confirmPassword) {
+        echo "<script>alert('Password does not match'); window.location.href='CreateUseAccountUI.html';</script>";
+    }else{
+        $result = $controller->createAccount($username, $password, $confirmPassword, $email, $phoneNumber, $dob, $roles);
+    }
     // Display result to the user
     if ($result === true) {
         echo "<script>alert('Registration successful!'); window.location.href='../Login.html';</script>";

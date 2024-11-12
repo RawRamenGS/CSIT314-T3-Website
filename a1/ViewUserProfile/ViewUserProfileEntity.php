@@ -1,7 +1,7 @@
 <?php
 require_once('../connect.php');
 
-class ViewUserAccountEntity {
+class ViewUserProfileEntity {
     private $conn;
 
     public function __construct() {
@@ -11,7 +11,7 @@ class ViewUserAccountEntity {
 
     public function getAllUsers() {
         // Prepare and execute the query to select all users
-        $stmt = $this->conn->prepare("SELECT username, email, phonenumber, dob FROM useraccount");
+        $stmt = $this->conn->prepare("SELECT profileId, Name, Description, status FROM userprofiles");
         $stmt->execute();
         $result = $stmt->get_result();
 

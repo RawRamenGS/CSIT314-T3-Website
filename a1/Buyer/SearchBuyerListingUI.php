@@ -1,11 +1,16 @@
 <?php
-// Hardcoded example car data
-$cars = [
-    ["id" => 1, "image" => "car.png", "name" => "Car 1", "price" => "$200", "favourites" => 11],
-    ["id" => 2, "image" => "car.png", "name" => "Car 2", "price" => "$300", "favourites" => 41],
-    ["id" => 3, "image" => "car.png", "name" => "Car 3", "price" => "$100", "favourites" => 24],
-    ["id" => 4, "image" => "car.png", "name" => "Car 4", "price" => "$180", "favourites" => 30],
-];
+    require_once('../Caar/CarController.php');
+    $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
+    $perPage = 5;  // Number of cars per page
+    $offset = ($page - 1) * $perPage;
+
+    // Instantiate the controller and get the paginated car data
+    $carController = new CarController();
+    $cars = $carController->getCars($perPage, $offset);
+
+    // Get the total number of cars for pagination (to calculate total pages)
+    $totalCars = $carController->getTotalCars();
+    $totalPages = ceil($totalCars / $perPage);;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,26 +58,31 @@ $cars = [
         <div class="car-list">
             <?php
             // Display each car as a card
+            if(!empty($cars)){
             foreach ($cars as $car) {
-                echo '
-                <a href="ViewBuyerListingUI.php?id=' . $car['id'] . '" class="car-card-link">
-                    <div class="car-card">
-                        <img src="' . $car['image'] . '" alt="' . $car['name'] . '" class="car-image">
-                        <h3>' . $car['name'] . '</h3>
-                        <p>' . $car['price'] . '</p>
-                        <p class="favourites">
-                            <span class="favourites-count">' . $car['favourites'] . '</span>
-                            <button class="heart-btn" data-car-id="' . $car['id'] . '">❤️</button>
-                        </p>
-                    </div>
-                </a>';
+                echo '<div class="listing-card">';
+                echo '<a href="CarDetails.php?id=' . urlencode($car->carID) . '">';
+                echo '<img src="car.png" height="100" width="200" alt="' . htmlspecialchars($car->carName) . '">';
+                echo '</a>';
+                echo '<p><b>$' . htmlspecialchars($car->price) . '</b></p>';
+                echo '<p>' . htmlspecialchars($car->carName) . '</p>';
+		        $dt = new DateTime($car->dateListed);
+                echo '<p>Listed ' . htmlspecialchars($dt->format('Y-m-d')) . '</p>';
+                //echo '<p>' . htmlspecialchars($car->favourites) . ' ❤️</p>';
+                //echo '<p>' . htmlspecialchars($car->views) . ' views</p>';
+                //echo '<p>Description: ' . htmlspecialchars($car->description) . '</p>';
+                //echo '<p>Listed by Agent ID: ' . htmlspecialchars($car->agent) . '</p>';
+                echo '<p>Car ID: ' . htmlspecialchars($car->carID) . '</p>';
+		        echo '<p>-------------------------------</p>';
+                echo '</div>';
+                }
             }
             ?>
         </div>
     </section>
 
     <!-- JavaScript to handle favourites -->
-    <script>
+    <!-- <script>
     document.addEventListener('DOMContentLoaded', function() {
         // Select all heart buttons
         const heartButtons = document.querySelectorAll('.heart-btn');
@@ -99,6 +109,6 @@ $cars = [
             });
         });
     });
-	</script>
+	</script> -->
 </body>
 </html>
