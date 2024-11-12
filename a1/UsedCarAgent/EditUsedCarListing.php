@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Title</title>
     <link rel="stylesheet" href="EditUsedCarListing.css">
 </head>
 <body>
@@ -22,7 +21,7 @@
     </nav>
 
     <main>
-        <a href="#" class="backBtn">&lt; Back</a>
+        <a href="ManageUsedCarListing.php" class="backBtn">&lt; Back</a>
 
         <div class="content-wrapper">
             <div class="list-item">
@@ -39,7 +38,7 @@
                     <textarea id="description" placeholder="Enter item description"></textarea>
 
                     <button type="submit" class="editBtn">Save</button>
-                    <a href="#"><button type="button" class="cancelBtn">Cancel</button></a>
+                    <a href="ManageUsedCarListing.php"><button type="button" class="cancelBtn">Cancel</button></a>
                 </form>
             </div>
         </div>
