@@ -1,7 +1,7 @@
-.form{
+body{
     text-align: center;
     align-items: center;
-    margin-top: 100px;
+    margin-top: 300px;
 }
 
 .btn1{
@@ -24,50 +24,3 @@ h1{
     font-size: 48px;
 }
 
-.navBar {
-    display: flex;
-    justify-content: space-between;
-    margin: 20px 0;
-    border-bottom: 1px solid #ccc;
-}
-
-.navBar a {
-    color: #000;
-    flex: 1;
-    padding: 10px 20px;
-    border: 1px solid;
-    text-align: center;
-    text-decoration: none;
-}
-
-.navBar a:hover {
-    background-color: #eaeaea;
-    border-color: black;
-    color: red;
-    text-decoration: underline;
-}
-
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-bottom: 10px;
-}
-
-.logoutBtn {
-    padding: 5px 30px;
-    border-radius: 50px;
-}
-
-.logoutBtn:hover {
-    background-color: #d5d4d4;
-}
-
-.profile-icon {
-    font-size: 24px;
-}
-
-.user-profile {
-    display: flex;
-    align-items: center;
-}
