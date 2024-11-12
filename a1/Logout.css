@@ -1,0 +1,55 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
+}
+
+.wrapper {
+    width: 520px;
+    background-color: transparent;
+    border: 1.5px solid;
+    /* backdrop-filter: blur(20px); */
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    border-radius: 30px;
+    padding: 30px 40px;
+}
+
+
+hr {
+    margin: 20px -40px;
+    height: 1.5px;
+    background-color: black;
+    border: none;
+}
+
+.logoutText {
+    text-align: center;
+    padding: 50px;
+}
+
+#bktoLogin {
+    width: 100%;
+    height: 45px;
+    border: none;
+    outline: none;
+    background-color: #d1d1d1;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+}
+
+#bktoLogin:hover {
+    background-color: #9a9a9a;
+}
