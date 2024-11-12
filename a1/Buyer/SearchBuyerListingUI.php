@@ -39,18 +39,10 @@
 	</nav>
 
     <!-- Search Section -->
-    <section class="search-section">
-        <p>Start by searching for your favorite brand of car!</p>
-        <div class="search-bar">
-            <!--
-            <form method="GET" action="SearchBuyerListingUI.php">
-                <input type="text" name="search" placeholder="Search">
-                <button type="submit">Search</button>
-            </form>
-            -->
-            <input type="text" placeholder="Search">
-        </div>
-    </section>
+    <div class="search-container">
+        <input type="text" placeholder="Search" class="searchTxt">
+        <button type="submit" class="btn" id="searchBtn">Search</button>
+    </div>
 
     <!-- Listings Section -->
     <section class="listings-section">
