@@ -22,57 +22,52 @@ $totalPages = ceil($totalCars / $perPage);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Website Title</title>
-    <link rel="stylesheet" href="Car.css">
+    <style>
+        /* Your CSS styling */
+    </style>
 </head>
 <body>
 
-<header>
-        <h1>Website Title</h1>
-        <div class="user-profile">
-            <div class="profile-icon">&#128100;</div>
-         <a href="../Login/Logout.php"><button class="logoutBtn">Logout</button></a>
-        </div>
-    </header>
-
-    <nav class="navBar">
-        <a href="../Buyer/BuyerHomeUI.php" id="homeBtn">Home</a>
-        <!-- <a href="" id="recentBtn">Recent</a>  -->
-        <a href="" id="favBtn">Favourites</a>
-        <a hred="" id="listingBtn">Listings</a>
-    </nav>
+<div class="navbar">
+    <h1>Website Title</h1>
+    <div class="tabs">
+        <button>Home</button>
+        <button>Recent</button>
+        <button>Favorites</button>
+        <button>Placeholder3</button>
+    </div>
+    <div>
+        <button>Logout</button>
+    </div>
+</div>
 
 <div class="search-section">
     <h2>Start by searching for your favorite brand of car!</h2>
     <input type="text" class="search-box" placeholder="Search">
 </div>
 
-<section class="listings-section">
-        <h2>Listings</h2>
-        <div class="car-list">
-            <?php
-            // Display each car as a card
-            if(!empty($cars)){
-            foreach ($cars as $car) {
-                echo '<div class="listing-card">';
-                echo '<a href="CarDetails.php?id=' . urlencode($car->carID) . '">';
-                echo '<img src="car.png" height="200" width="300" alt="' . htmlspecialchars($car->carName) . '">';
-                echo '</a>';
-                echo '<p><b>$' . htmlspecialchars($car->price) . '</b></p>';
-                echo '<p>' . htmlspecialchars($car->carName) . '</p>';
-		        $dt = new DateTime($car->dateListed);
-                echo '<p>Listed ' . htmlspecialchars($dt->format('Y-m-d')) . '</p>';
-                //echo '<p>' . htmlspecialchars($car->favourites) . ' ❤️</p>';
-                //echo '<p>' . htmlspecialchars($car->views) . ' views</p>';
-                //echo '<p>Description: ' . htmlspecialchars($car->description) . '</p>';
-                //echo '<p>Listed by Agent ID: ' . htmlspecialchars($car->agent) . '</p>';
-                echo '<p>Car ID: ' . htmlspecialchars($car->carID) . '</p>';
-		        echo '<p>-------------------------------</p>';
-                echo '</div>';
-                }
-            }
-            ?>
-        </div>
-    </section>
+<div class="listings">
+    <?php
+    // Loop through each car from the controller data and display it
+    foreach ($cars as $car) {
+        echo '<div class="listing-card">';
+        echo '<a href="CarDetails.php?id=' . urlencode($car->carID) . '">';
+        echo '<img src="car.png" height="100" width="200" alt="' . htmlspecialchars($car->carName) . '">';
+        echo '</a>';
+        echo '<p><b>$' . htmlspecialchars($car->price) . '</b></p>';
+        echo '<p>' . htmlspecialchars($car->carName) . '</p>';
+		$dt = new DateTime($car->dateListed);
+        echo '<p>Listed ' . htmlspecialchars($dt->format('Y-m-d')) . '</p>';
+        //echo '<p>' . htmlspecialchars($car->favourites) . ' ❤️</p>';
+        //echo '<p>' . htmlspecialchars($car->views) . ' views</p>';
+        //echo '<p>Description: ' . htmlspecialchars($car->description) . '</p>';
+        //echo '<p>Listed by Agent ID: ' . htmlspecialchars($car->agent) . '</p>';
+        echo '<p>Car ID: ' . htmlspecialchars($car->carID) . '</p>';
+		echo '<p>-------------------------------</p>';
+        echo '</div>';
+    }
+    ?>
+</div>
 
 <!-- Pagination Controls -->
 <div class="pagination">

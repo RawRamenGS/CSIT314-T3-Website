@@ -1,4 +1,5 @@
 <?php
+require_once('../connect.php');
 
 class Car {
     public $carName;
@@ -24,20 +25,7 @@ class Car {
 
     // Static method to retrieve a set of cars for pagination
     public static function getPaginatedCars($limit, $offset) {
-        // Database connection parameters
-        $host = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "a1_database";
-
-        // Connection to the database
-        $conn = new mysqli($host, $username, $password, $dbname);
-
-        // Check for a connection error
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
-
+		global $conn;
         // Query to retrieve a paginated set of cars
         $sql = "SELECT * FROM carlisting LIMIT ? OFFSET ?";
         $stmt = $conn->prepare($sql);
@@ -54,28 +42,12 @@ class Car {
                 $row["favourites"], $row["views"], $row["description"], $row["agent"], $row["carID"]);
         }
 
-        // Close the database connection
-        $conn->close();
-
         return $cars;
     }
 
     // Static method to get the total number of cars (for pagination)
     public static function getTotalCars() {
-        // Database connection parameters
-        $host = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "a1_database";
-
-        // Connection to the database
-        $conn = new mysqli($host, $username, $password, $dbname);
-
-        // Check for a connection error
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
-
+        global $conn;
         // Query to count the total number of cars
         $sql = "SELECT COUNT(*) as total FROM carlisting";
         $result = $conn->query($sql);
@@ -83,9 +55,6 @@ class Car {
 
         // Get the total number of cars
         $total = $row['total'];
-
-        // Close the database connection
-        $conn->close();
 
         return $total;
     }

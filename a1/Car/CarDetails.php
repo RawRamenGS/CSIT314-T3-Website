@@ -22,24 +22,33 @@ if (!$car) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Car Details - <?= htmlspecialchars($car->carName) ?></title>
-    <link rel="stylesheet" href="CarDetails.css">
+    <style>
+        .car-details {
+		  display: flex;         /* Enable Flexbox */
+		  justify-content: space-between;  /* Distribute space between items */
+		}
+
+		.section {
+		  flex: 1;               /* Each section takes equal space */
+		  margin: 10px;          /* Optional margin between sections */
+		  padding: 10px;         /* Optional padding */
+		}
+    </style>
 </head>
 <body>
 
-<header>
-        <h1>Website Title</h1>
-        <div class="user-profile">
-            <div class="profile-icon">&#128100;</div>
-         <a href="../Login/Logout.php"><button class="logoutBtn">Logout</button></a>
-        </div>
-    </header>
-
-    <nav class="navBar">
-        <a href="../Buyer/BuyerHomeUI.php" id="homeBtn">Home</a>
-        <!-- <a href="" id="recentBtn">Recent</a>  -->
-        <a href="" id="favBtn">Favourites</a>
-        <a hred="" id="listingBtn">Listings</a>
-    </nav>
+<div class="navbar">
+    <h1>Website Title</h1>
+    <div class="tabs">
+        <button>Home</button>
+        <button>Recent</button>
+        <button>Favorites</button>
+        <button>Placeholder3</button>
+    </div>
+    <div>
+        <button>Logout</button>
+    </div>
+</div>
 
 <div class="car-details">
 	<div class="section">

@@ -1,5 +1,5 @@
 <?php
-
+require_once('../connect.php');
 class CarDetailsEntity {
     public $carName;
     public $dateListed;
@@ -24,20 +24,7 @@ class CarDetailsEntity {
 
     // Static method to retrieve a car by ID
     public static function getCarById($carID) {
-        // Database connection parameters
-        $host = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "a1_database";
-
-        // Connection to the database
-        $conn = new mysqli($host, $username, $password, $dbname);
-
-        // Check for a connection error
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
-
+		global $conn;
         // Query to retrieve the car by ID
         $sql = "SELECT * FROM carlisting WHERE carID = ?";
         $stmt = $conn->prepare($sql);
