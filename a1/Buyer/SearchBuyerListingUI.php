@@ -1,16 +1,23 @@
 <?php
-    require_once('../Caar/CarController.php');
-    $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
-    $perPage = 5;  // Number of cars per page
-    $offset = ($page - 1) * $perPage;
+    // require_once('../Caar/CarController.php');
+    // $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
+    // $perPage = 5;  // Number of cars per page
+    // $offset = ($page - 1) * $perPage;
 
-    // Instantiate the controller and get the paginated car data
-    $carController = new CarController();
-    $cars = $carController->getCars($perPage, $offset);
+    // // Instantiate the controller and get the paginated car data
+    // $carController = new CarController();
+    // $cars = $carController->getCars($perPage, $offset);
 
-    // Get the total number of cars for pagination (to calculate total pages)
-    $totalCars = $carController->getTotalCars();
-    $totalPages = ceil($totalCars / $perPage);;
+    // // Get the total number of cars for pagination (to calculate total pages)
+    // $totalCars = $carController->getTotalCars();
+    // $totalPages = ceil($totalCars / $perPage);;
+    $cars = [
+        ["id" => 1, "image" => "images/car-placeholder.png", "name" => "Car 1", "price" => "$200", "favourites" => 11],
+        ["id" => 2, "image" => "images/car-placeholder.png", "name" => "Car 2", "price" => "$300", "favourites" => 41],
+        ["id" => 3, "image" => "images/car-placeholder.png", "name" => "Car 3", "price" => "$100", "favourites" => 24],
+        ["id" => 4, "image" => "images/car-placeholder.png", "name" => "Car 4", "price" => "$180", "favourites" => 30],
+    ];
+    ?>
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -39,10 +46,18 @@
 	</nav>
 
     <!-- Search Section -->
-    <div class="search-container">
-        <input type="text" placeholder="Search" class="searchTxt">
-        <button type="submit" class="btn" id="searchBtn">Search</button>
-    </div>
+    <section class="search-section">
+        <p>Start by searching for your favorite brand of car!</p>
+        <div class="search-bar">
+            <!--
+            <form method="GET" action="SearchBuyerListingUI.php">
+                <input type="text" name="search" placeholder="Search">
+                <button type="submit">Search</button>
+            </form>
+            -->
+            <input type="text" placeholder="Search">
+        </div>
+    </section>
 
     <!-- Listings Section -->
     <section class="listings-section">

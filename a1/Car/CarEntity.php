@@ -50,7 +50,7 @@ class Car {
 
         // Fetch each record and create a Car object
         while ($row = $result->fetch_assoc()) {
-            $cars[] = new Car($row["carName"]q  , $row["price"],
+            $cars[] = new Car($row["carName"], $row["dateListed"], $row["price"],
                 $row["favourites"], $row["views"], $row["description"], $row["agent"], $row["carID"]);
         }
 
@@ -66,7 +66,7 @@ class Car {
         $host = "localhost";
         $username = "root";
         $password = "";
-        $dbname = "csit314";
+        $dbname = "a1_database";
 
         // Connection to the database
         $conn = new mysqli($host, $username, $password, $dbname);

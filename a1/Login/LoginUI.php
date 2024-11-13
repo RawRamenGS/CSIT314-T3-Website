@@ -14,6 +14,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (is_array($result) && !empty($result)) {
         if ($result['Name'] == "UserAdmin") {
             echo "<script>alert('Login Successful!'); window.location.href='../useradmin/landingPage.php';</script>";
+        }if ($result['Name'] == "Buyer") {
+            echo "<script>alert('Login Successful!'); window.location.href='../Buyer/BuyerHomeUI.php';</script>";
+        }if ($result['Name'] == "UserAdmin") {
+            echo "<script>alert('Login Successful!'); window.location.href='../useradmin/landingPage.php';</script>";
+        }if ($result['Name'] == "UserAdmin") {
+            echo "<script>alert('Login Successful!'); window.location.href='../useradmin/landingPage.php';</script>";
         } else {
             echo "<script>alert('Access Denied: You do not have admin rights.'); window.history.back();</script>";
         }

@@ -34,11 +34,13 @@ $cars = [
     </nav>
 
     <!-- Search Section -->
-    <div class="search-container">
-                <input type="text" placeholder="Search" class="searchTxt">
-                <button type="submit" class="btn" id="searchBtn">Search</button>
-            </div>
-			
+    <section class="search-section">
+        <p>Search your favourites!</p>
+        <div class="search-bar">
+            <input type="text" placeholder="Search">
+        </div>
+    </section>
+
     <!-- Listings Section -->
     <section class="listings-section">
         <h2>Your Favourite Listings</h2>

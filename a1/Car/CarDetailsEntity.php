@@ -28,7 +28,7 @@ class CarDetailsEntity {
         $host = "localhost";
         $username = "root";
         $password = "";
-        $dbname = "csit314";
+        $dbname = "a1_database";
 
         // Connection to the database
         $conn = new mysqli($host, $username, $password, $dbname);
