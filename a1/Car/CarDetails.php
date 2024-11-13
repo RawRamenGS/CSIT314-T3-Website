@@ -1,4 +1,11 @@
 <?php
+session_start();
+
+if (!isset($_SESSION['is_logged_in']) || $_SESSION['is_logged_in'] !== true) {
+    header("Location: ../Login/Login.html"); // Redirect to login page if not authenticated
+    exit;
+}
+require_once 'CarController.php';
 // Include the controller
 require_once 'CarDetailsController.php';
 
@@ -22,33 +29,25 @@ if (!$car) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Car Details - <?= htmlspecialchars($car->carName) ?></title>
-    <style>
-        .car-details {
-		  display: flex;         /* Enable Flexbox */
-		  justify-content: space-between;  /* Distribute space between items */
-		}
-
-		.section {
-		  flex: 1;               /* Each section takes equal space */
-		  margin: 10px;          /* Optional margin between sections */
-		  padding: 10px;         /* Optional padding */
-		}
-    </style>
+    <link rel="stylesheet" href="CarDetails.css">
 </head>
 <body>
 
-<div class="navbar">
-    <h1>Website Title</h1>
-    <div class="tabs">
-        <button>Home</button>
-        <button>Recent</button>
-        <button>Favorites</button>
-        <button>Placeholder3</button>
-    </div>
-    <div>
-        <button>Logout</button>
-    </div>
-</div>
+<header>
+        <h1>Welcome, <?php echo $_SESSION['username'] ?></h1>
+        <div class="user-profile">
+		<div class="profile-icon">&#128100;</div>
+            <a href="../Login/Logout.php"><button class="logoutBtn">Logout</button></a>
+        </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+	<nav class="navBar">
+		<a href="../<?php echo $_SESSION["name"]; ?>/<?php echo $_SESSION["name"]; ?>HomeUI.php" id="BuyerHomeBtn">Home</a>
+		<a href="../Car/Car.php" id="SearchBuyerListingBtn">Listings</a>
+		<a href="ViewBuyerFavListingUI.php" id="ViewBuyerFavListingBtn">Favourites</a>
+		<a href="BuyerRateReviewUI.php" id="BuyerRateReviewBtn">Rate and Review Agents</a>
+	</nav>
 
 <div class="car-details">
 	<div class="section">

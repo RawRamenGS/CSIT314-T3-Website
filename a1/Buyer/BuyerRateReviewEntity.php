@@ -20,7 +20,7 @@ class BuyerRateReviewEntity{
         }
     }
 
-    public function BuyerRateReview($carAgent,$rating,$review,$buyer ){
+    public function BuyerRateReview($carAgent,$rating,$review ){
         $stmt = $this->conn->prepare("INSERT INTO feedback(AgentID,rating,review,respondent,role) VALUES (?,?,?,?,?)");
         $stmt->bind_param("iisss",$carAgent,$rating,$review,$_SESSION['username'],$_SESSION['name']);
         

@@ -16,10 +16,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "<script>alert('Login Successful!'); window.location.href='../useradmin/landingPage.php';</script>";
         }if ($result['Name'] == "Buyer") {
             echo "<script>alert('Login Successful!'); window.location.href='../Buyer/BuyerHomeUI.php';</script>";
-        }if ($result['Name'] == "UserAdmin") {
-            echo "<script>alert('Login Successful!'); window.location.href='../useradmin/landingPage.php';</script>";
-        }if ($result['Name'] == "UserAdmin") {
-            echo "<script>alert('Login Successful!'); window.location.href='../useradmin/landingPage.php';</script>";
+        }if ($result['Name'] == "UsedCarAgent") {
+            echo "<script>alert('Login Successful!'); window.location.href='../UsedCarAgent/UsedCarAgentHomeUI.php';</script>";
+        }if ($result['Name'] == "Seller") {
+            echo "<script>alert('Login Successful!'); window.location.href='../Seller/SellerHomeUI.php';</script>";
         } else {
             echo "<script>alert('Access Denied: You do not have admin rights.'); window.history.back();</script>";
         }

@@ -1,5 +1,11 @@
 <?php
 // Include the controller
+session_start();
+
+if (!isset($_SESSION['is_logged_in']) || $_SESSION['is_logged_in'] !== true) {
+    header("Location: ../Login/Login.html"); // Redirect to login page if not authenticated
+    exit;
+}
 require_once 'CarController.php';
 
 // Get the current page from the URL (defaults to page 1 if not set)
@@ -22,24 +28,25 @@ $totalPages = ceil($totalCars / $perPage);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Website Title</title>
-    <style>
-        /* Your CSS styling */
-    </style>
+    <link rel="stylesheet" href="Car.css">>
 </head>
 <body>
 
-<div class="navbar">
-    <h1>Website Title</h1>
-    <div class="tabs">
-        <button>Home</button>
-        <button>Recent</button>
-        <button>Favorites</button>
-        <button>Placeholder3</button>
-    </div>
-    <div>
-        <button>Logout</button>
-    </div>
-</div>
+<header>
+        <h1>Welcome, <?php echo $_SESSION['username'] ?></h1>
+        <div class="user-profile">
+		<div class="profile-icon">&#128100;</div>
+            <a href="../Login/Logout.php"><button class="logoutBtn">Logout</button></a>
+        </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+	<nav class="navBar">
+		<a href="BuyerHomeUI.php" id="BuyerHomeBtn">Home</a>
+		<a href="../Car/Car.php" id="SearchBuyerListingBtn">Listings</a>
+		<a href="ViewBuyerFavListingUI.php" id="ViewBuyerFavListingBtn">Favourites</a>
+		<a href="BuyerRateReviewUI.php" id="BuyerRateReviewBtn">Rate and Review Agents</a>
+	</nav>
 
 <div class="search-section">
     <h2>Start by searching for your favorite brand of car!</h2>
@@ -52,7 +59,7 @@ $totalPages = ceil($totalCars / $perPage);
     foreach ($cars as $car) {
         echo '<div class="listing-card">';
         echo '<a href="CarDetails.php?id=' . urlencode($car->carID) . '">';
-        echo '<img src="car.png" height="100" width="200" alt="' . htmlspecialchars($car->carName) . '">';
+        echo '<img src="car.png" height="200" width="300" alt="' . htmlspecialchars($car->carName) . '">';
         echo '</a>';
         echo '<p><b>$' . htmlspecialchars($car->price) . '</b></p>';
         echo '<p>' . htmlspecialchars($car->carName) . '</p>';

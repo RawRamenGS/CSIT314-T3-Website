@@ -14,7 +14,7 @@ if (!isset($_SESSION['is_logged_in']) || $_SESSION['is_logged_in'] !== true) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
-    <link rel="stylesheet" href="landingPage.css">
+    <link rel="stylesheet" href="landingpage.css">
 </head>
 <body>
     <header>
@@ -25,19 +25,11 @@ if (!isset($_SESSION['is_logged_in']) || $_SESSION['is_logged_in'] !== true) {
         </div>
     </header>
 
-    <nav class="navBar">
-        <a href="landingPage.html" id="homeBtn">Home</a>
-        <!-- <a href="" id="recentBtn">Recent</a>  -->
-        <a href="" id="favBtn">Favourites</a>
-        <a hred="" id="listingBtn">Listings</a>
-    </nav>
-
     <div class="form">
     <h1>Welcome to Admin page, <?php echo $_SESSION['username'] ?> what would like to do!</h1>
-    <a href="../CreateUserAccount/CreateUserAccountUI.html" class="a1"><button class="btn1" >Create new user account</button></a>
-    <a href="../ViewUserAccount/ViewUserAccountUI.php" class="a1"><button class="btn1">View user accounts</button></a>
-    <a href="../ViewUserProfile/ViewUserProfileUI.php" class="a1"><button class="btn1" >View User profiles</button></a>
-    <a href="#" class="a1"><button class="btn1">New thing....</button></a>
+    <a href="CreateUserAccount/CreateUserAccountUI.html" class="a1"><button class="btn1" >Create new user account</button></a>
+    <a href="ViewUserAccount/ViewUserAccountUI.php" class="a1"><button class="btn1">View user accounts</button></a>
+    <a href="ViewUserProfile/ViewUserProfileUI.php" class="a1"><button class="btn1" >View User profiles</button></a>
 </div>
 </body>
 </html>

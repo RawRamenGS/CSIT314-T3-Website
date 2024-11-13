@@ -11,10 +11,7 @@
         <h1>Seller</h1>
         <div class="user-profile">
             <div class="profile-icon">&#128100;</div>
-            <!-- Logout Form -->
-            <!-- <form action="LogoutController.php" method="POST"> -->
-                <button type="submit" class="logoutBtn">Logout</button>
-            </form>
+                <a href="../Login/Logout.php"><button type="submit" class="logoutBtn">Logout</button></a>
         </div>
     </header>
 
@@ -25,6 +22,7 @@
     </nav>
 
     <div>
+    <a href="SellerHomeUI.php" class="backBtn">&lt; Back</a>
         <div class="tableDiv">
             <div class="search-container">
                 <input type="text" placeholder="Search" class="searchTxt">

@@ -11,19 +11,19 @@
         <h1>Website Title</h1>
         <div class="user-profile">
             <div class="profile-icon">&#128100;</div>
-            <button class="logoutBtn">Logout</button>
+            <a href="../Login/Logout.php"><button class="logoutBtn">Logout</button></a>
         </div>
     </header>
 
     <nav class="navBar">
-		<a href="UsedCarAgentLandingPage.php" id="homeBtn">Home</a>
+		<a href="UsedCarAgentHomeUI.php" id="homeBtn">Home</a>
         <a href="CreateUsedCarListing.php" id="createNewBtn">Create New Listing</a>
         <a href="ManageUsedCarListing.php" id="listingBtn">My Listings</a>
-		<a href="ViewAgentReview.php" id="reviewBtn">My Reviews</a>
+		<a href="ViewRateReviewUI.php" id="reviewBtn">My Reviews</a>
     </nav>
 
     <div>
-        <a href="#" class="backBtn">&lt; Back</a>
+        <a href="UsedCarAgentHomeUI.php" class="backBtn">&lt; Back</a>
         <div class="tableDiv">
             <div class="search-container">
                 <input type="text" placeholder="Search" class="searchTxt">
