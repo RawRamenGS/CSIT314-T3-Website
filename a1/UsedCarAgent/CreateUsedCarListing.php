@@ -1,3 +1,11 @@
+<?php
+require_once 'CreateListingController.php';
+$CreateListingController = new CreateListingController();
+$sellers = $CreateListingController->getSellersUsernames();
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,24 +26,33 @@
     <nav class="navBar">
         <a href="" id="homeBtn">Home</a>
         <a href="" id="favBtn">Favourites</a>
-        <a hred="" id="listingBtn">Listings</a>
+        <a href="" id="listingBtn">Listings</a>
     </nav>
 
     <main>
         <a href="#" class="backBtn">&lt; Back</a>
-
         <div class="content-wrapper">
             <div class="list-item">
                 <h2>List your item</h2>
-                <form>
+                <form action="CreateListing.php" method="post">
                     <label for="name">Name</label>
-                    <input type="text" id="name" placeholder="Enter item name">
+                    <input type="text" id="name" name="carName" placeholder="Enter item name">
 
                     <label for="price">Price</label>
-                    <input type="text" id="price" placeholder="Enter item price">
+                    <input type="text" id="price" name="price" placeholder="Enter item price">
 
                     <label for="description">Description</label>
-                    <textarea id="description" placeholder="Enter item description"></textarea>
+                    <textarea id="description" name="description" placeholder="Enter item description"></textarea>
+					
+                    <label for="seller">Choose Seller</label>
+                    <select name="seller" id="seller">
+                        <option value="">Select a Seller</option>
+                        <?php
+                        foreach ($sellers as $seller) {
+                            echo "<option value='{$seller['id']}'>{$seller['username']}</option>";
+                        }
+                        ?>
+                    </select>
 
                     <button type="submit" class="createBtn">Create</button>
                 </form>
