@@ -24,13 +24,15 @@ $sellers = $CreateListingController->getSellersUsernames();
     </header>
 
     <nav class="navBar">
-        <a href="" id="homeBtn">Home</a>
-        <a href="" id="favBtn">Favourites</a>
-        <a href="" id="listingBtn">Listings</a>
+		<a href="UsedCarAgentLandingPage.php" id="homeBtn">Home</a>
+        <a href="CreateUsedCarListing.php" id="createNewBtn">Create New Listing</a>
+        <a href="ManageUsedCarListing.php" id="listingBtn">My Listings</a>
+		<a href="ViewAgentReview.php" id="reviewBtn">My Reviews</a>
     </nav>
 
     <main>
         <a href="#" class="backBtn">&lt; Back</a>
+
         <div class="content-wrapper">
             <div class="list-item">
                 <h2>List your item</h2>
