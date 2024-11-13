@@ -1,5 +1,8 @@
 <?php
+session_start();
+$userid = $_SESSION['id'];
 require_once('../connect.php');
+
 class CarDetailsEntity {
     public $carName;
     public $dateListed;
@@ -43,9 +46,47 @@ class CarDetailsEntity {
             $car = null; // No car found with the given ID
         }
 
-        // Close the database connection
-        $conn->close();
-
         return $car;
+    }
+	
+	public static function updateFavourites($carID) { 
+		global $conn, $userid;
+		// IF favourite not found -> (Insert) into db, ELSE -> (Delete) from db
+        // Get the current favourites count
+        $stmt = $conn->prepare('SELECT COUNT(*) FROM favourites WHERE carID = ? AND favouriteBy = ?');
+        $stmt->bind_param('ii', $carID, $userid);
+        $stmt->execute();
+		$stmt->bind_result($count);
+		$stmt->fetch();
+		$stmt->close();
+		if ($count > 0) { // Favourite by user already
+			// DELETE
+			$deleteStmt = $conn->prepare('DELETE FROM favourites WHERE carID = ? AND favouriteBy = ?');
+			$deleteStmt->bind_param('ii', $carID, $userid);
+			$deleteStmt->execute();
+			return true;
+		} else { // None found, insert new record UserID-tagged-CarID
+			// INSERT
+			$insertStmt = $conn->prepare('INSERT INTO favourites (carID, favouriteBy) VALUES (?, ?)');
+			$insertStmt->bind_param('ii', $carID, $userid);
+			$insertStmt->execute();
+			return true;
+			//return "Added car to your favourites!";
+		}
+    }
+	
+	public static function getFavouritesCount($carID) {
+        global $conn;
+
+        // SQL query to get the count of favourites for the specific car
+        $sql = "SELECT COUNT(*) FROM favourites WHERE carID = ?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("i", $carID);
+        $stmt->execute();
+        $stmt->bind_result($favouritesCount);
+        $stmt->fetch();
+        $stmt->close();
+
+        return $favouritesCount;
     }
 }

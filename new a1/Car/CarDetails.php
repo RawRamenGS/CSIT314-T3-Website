@@ -34,12 +34,12 @@ if (!$car) {
 <body>
 
 <header>
-        <h1>Welcome, <?php echo $_SESSION['username'] ?></h1>
-        <div class="user-profile">
-		<div class="profile-icon">&#128100;</div>
-            <a href="../Login/Logout.php"><button class="logoutBtn">Logout</button></a>
-        </div>
-    </header>
+	<h1>Welcome, <?php echo $_SESSION['username'] ?></h1>
+	<div class="user-profile">
+	<div class="profile-icon">&#128100;</div>
+	<a href="../Login/Logout.php"><button class="logoutBtn">Logout</button></a>
+	</div>
+</header>
 
     <!-- Navigation Tabs -->
 	<nav class="navBar">
@@ -58,7 +58,12 @@ if (!$car) {
 	<h2>Car Description</h2>
     <p><b>Price:</b> $<?= htmlspecialchars($car->price) ?></p>
     <p><b>Listed:</b> <?= htmlspecialchars($car->dateListed) ?></p>
-    <p><b>Favourites:</b> <?= htmlspecialchars($car->favourites) ?> ❤️</p>
+    <p><b>Favourites:</b> <?= htmlspecialchars($car->favouritesCount) ?>
+		<form action="CarDetailsController.php" method="POST" style="display: inline;">
+            <input type="hidden" name="carID" value="<?= htmlspecialchars($car->carID) ?>">
+            <button type="submit">❤️</button>
+        </form>
+	</p>
     <p><b>Views:</b> <?= htmlspecialchars($car->views) ?> views</p>
     <p><b>Description:</b> <?= nl2br(htmlspecialchars($car->description)) ?></p>
     <p><b>Listed by Agent ID:</b> <?= htmlspecialchars($car->agent) ?></p>
