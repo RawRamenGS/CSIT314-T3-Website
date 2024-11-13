@@ -16,9 +16,10 @@
     </header>
 
     <nav class="navBar">
-        <a href="" id="homeBtn">Home</a>
-        <a href="" id="favBtn">Favourites</a>
-        <a hred="" id="listingBtn">Listings</a>
+		<a href="UsedCarAgentLandingPage.php" id="homeBtn">Home</a>
+        <a href="CreateUsedCarListing.php" id="createNewBtn">Create New Listing</a>
+        <a href="ManageUsedCarListing.php" id="listingBtn">My Listings</a>
+		<a href="ViewAgentReview.php" id="reviewBtn">My Reviews</a>
     </nav>
 
     <div>
@@ -33,7 +34,7 @@
                 <thead>
                     <tr>
                         <th>Name</th>
-                        <th>Listed On</th>
+                        <th>Seller</th>
                         <th>Price</th>
                         <th>Number of Favourites</th>
                         <th>Number of Views</th>
@@ -44,16 +45,16 @@
                 <tbody>
                     <tr>
                         <td>Car 1</td>
-                        <td>6/11/2024</td>
+                        <td>Daven</td>
                         <td>$200</td>
                         <td>11</td>
                         <td>25</td>
-                        <td><a href="#" class="tableBtn">Edit</a></td>
+                        <td><a href="EditUsedCarListing.php" class="tableBtn">Edit</a></td>
                         <td><a href="#" class="tableBtn">Delete</a></td>
                     </tr>
                     <tr>
                         <td>Car 2</td>
-                        <td>1/11/2024</td>
+                        <td>Nic</td>
                         <td>$300</td>
                         <td>41</td>
                         <td>94</td>
@@ -62,7 +63,7 @@
                     </tr>
                     <tr>
                         <td>Car 3</td>
-                        <td>20/10/2024</td>
+                        <td>Nicholas</td>
                         <td>$100</td>
                         <td>24</td>
                         <td>65</td>
@@ -71,7 +72,7 @@
                     </tr>
                     <tr>
                         <td>Car 4</td>
-                        <td>29/10/2024</td>
+                        <td>Nicho</td>
                         <td>$180</td>
                         <td>30</td>
                         <td>70</td>
