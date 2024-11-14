@@ -1,25 +1,29 @@
 <?php
 // Include the controller
 session_start();
-
-if (!isset($_SESSION['is_logged_in']) || $_SESSION['is_logged_in'] !== true) {
-    header("Location: ../Login/Login.html"); // Redirect to login page if not authenticated
-    exit;
-}
 require_once 'CarController.php';
+require_once  'SearchCarController.php';
+
 
 // Get the current page from the URL (defaults to page 1 if not set)
 $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
 $perPage = 5;  // Number of cars per page
 $offset = ($page - 1) * $perPage;
 
-// Instantiate the controller and get the paginated car data
-$carController = new CarController();
-$cars = $carController->getCars($perPage, $offset);
 
-// Get the total number of cars for pagination (to calculate total pages)
-$totalCars = $carController->getTotalCars();
-$totalPages = ceil($totalCars / $perPage);
+
+
+// Search Car
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $carname = trim($_POST['search']);
+    $searchController = new SearchCarController();
+    $totalCars = $searchController->getTotalCar($carname);
+    $totalPages = ceil($totalCars / $perPage);
+    $search = $searchController->SearchCar($carname,$perPage,$offset);
+    print_r($search);
+    // Get the total number of cars for pagination (to calculate total pages)
+    
+}
 ?>
 
 <!DOCTYPE html>
@@ -59,25 +63,33 @@ $totalPages = ceil($totalCars / $perPage);
 <div class="listings">
     <?php
     // Loop through each car from the controller data and display it
-    foreach ($cars as $car) {
-        echo '<div class="listing-card">';
-        echo '<a href="CarDetails.php?id=' . urlencode($car->carID) . '">';
-        echo '<img src="car.png" height="200" width="300" alt="' . htmlspecialchars($car->carName) . '">';
-        echo '</a>';
-        echo '<p><b>$' . htmlspecialchars($car->price) . '</b></p>';
-        echo '<p>' . htmlspecialchars($car->carName) . '</p>';
-		$dt = new DateTime($car->dateListed);
-        echo '<p>Listed ' . htmlspecialchars($dt->format('Y-m-d')) . '</p>';
-        //echo '<p>' . htmlspecialchars($car->favourites) . ' ❤️</p>';
-        //echo '<p>' . htmlspecialchars($car->views) . ' views</p>';
-        //echo '<p>Description: ' . htmlspecialchars($car->description) . '</p>';
-        //echo '<p>Listed by Agent ID: ' . htmlspecialchars($car->agent) . '</p>';
-        echo '<p>Car ID: ' . htmlspecialchars($car->carID) . '</p>';
-		echo '<p>-------------------------------</p>';
-        echo '</div>';
+    if (!empty($search)) {
+        foreach ($search as $car) {
+            echo '<div class="listing-card">';
+            echo '<a href="CarDetails.php?id=' . urlencode($car['carID']) . '">';
+            echo '<img src="car.png" height="200" width="300" alt="' . htmlspecialchars($car['carName']) . '">';
+            echo '</a>';
+            echo '<p><b>$' . htmlspecialchars($car['price']) . '</b></p>';
+            echo '<p>' . htmlspecialchars($car['carName']) . '</p>';
+            $dt = new DateTime($car['dateListed']);
+            echo '<p>Listed ' . htmlspecialchars($dt->format('Y-m-d')) . '</p>';
+            //echo '<p>' . htmlspecialchars($car['favourites']) . ' ❤️</p>';
+            //echo '<p>' . htmlspecialchars($car['views']) . ' views</p>';
+            //echo '<p>Description: ' . htmlspecialchars($car['description']) . '</p>';
+            //echo '<p>Listed by Agent ID: ' . htmlspecialchars($car['agent']) . '</p>';
+            echo '<p>Car ID: ' . htmlspecialchars($car['carID']) . '</p>';
+            echo '<p>-------------------------------</p>';
+            echo '</div>';
+        }
+    } else { ?>
+        <tr>
+            <td colspan="8">Car not found</td>
+        </tr>
+    <?php
     }
     ?>
 </div>
+
 
 <!-- Pagination Controls -->
 <div class="pagination">

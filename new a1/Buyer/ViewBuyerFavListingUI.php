@@ -21,14 +21,14 @@ $cars = [
         <h1>Buyer Favourite Car Listings</h1>
         <div class="user-profile">
 		<div class="profile-icon">&#128100;</div>
-            <button class="logoutBtn">Logout</button>
+            <a href="../Login/Logout.php"><button class="logoutBtn">Logout</button></a>
         </div>
     </header>
 
     <!-- Navigation Tabs -->
     <nav class="navBar">
 		<a href="BuyerHomeUI.php" id="BuyerHomeBtn">Home</a>
-		<a href="SearchBuyerListingUI.php" id="SearchBuyerListingBtn">Listings</a>
+		<a href="../Car/Car.php" id="SearchBuyerListingBtn">Listings</a>
 		<a href="ViewBuyerFavListingUI.php" id="ViewBuyerFavListingBtn">Favourites</a>
 		<a href="BuyerRateReviewUI.php" id="BuyerRateReviewBtn">Rate and Review Agents</a>
     </nav>

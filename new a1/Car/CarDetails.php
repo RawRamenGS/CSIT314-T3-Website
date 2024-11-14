@@ -1,10 +1,5 @@
 <?php
-session_start();
 
-if (!isset($_SESSION['is_logged_in']) || $_SESSION['is_logged_in'] !== true) {
-    header("Location: ../Login/Login.html"); // Redirect to login page if not authenticated
-    exit;
-}
 require_once 'CarController.php';
 // Include the controller
 require_once 'CarDetailsController.php';
