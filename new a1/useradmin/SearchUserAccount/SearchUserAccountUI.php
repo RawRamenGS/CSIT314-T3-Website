@@ -1,15 +1,12 @@
 <?php 
-    require_once('SearchUserAccountController.php');
+require_once('SearchUserAccountController.php');
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = trim($_POST['search']);
     
     $controller = new SearchUserAccountController();
-
     $result = $controller->searchUserAccount($username);
-
 }
-    
 ?>
 
 <!DOCTYPE html>
@@ -25,15 +22,16 @@
     <div class="container">  
         <h1>View User Account</h1>
         <form action="SearchUserAccountUI.php" method="post">
-        <div class ="input-container">
-            <input type="text" placeholder="search" id="search" name="search">
+        <div class="input-container">
+            <input type="text" placeholder="Search" id="search" name="search" required>
             <button class="btnSearch">Search</button>
         </div>
         </form>
         <div class="container-table">
             <table>
                 <thead>
-                    <tr><th>User id </th>
+                    <tr>
+                        <th>User ID</th>
                         <th>Username</th>
                         <th>Email</th>
                         <th>Phone Number</th>
@@ -42,8 +40,8 @@
                 </thead>
                 <tbody>
                     <?php 
-                        if(!empty($result)) {
-                        foreach ($result  as $user) { ?>
+                    if (isset($result) && !empty($result) && is_array($result)) {
+                        foreach ($result as $user) { ?>
                             <tr>
                                 <td><?php echo htmlspecialchars($user['id']); ?></td>
                                 <td><?php echo htmlspecialchars($user['username']); ?></td>
@@ -54,7 +52,7 @@
                         <?php }
                     } else { ?>
                         <tr>
-                            <td colspan="5">No users found.</td>
+                            <td colspan="5">No user accounts found.</td>
                         </tr>
                     <?php } ?>
                 </tbody>
@@ -63,4 +61,3 @@
     </div>
 </body>
 </html>
-
