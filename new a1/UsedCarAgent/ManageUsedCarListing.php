@@ -64,8 +64,8 @@ $listing = $controller->getfavcar();
                                 <td><?php echo htmlspecialchars($l['favourites']); ?></td>
                                 <td><?php echo htmlspecialchars($l['views']); ?></td>
                                 <td>
-                                    <form action="../Buyer/RemoveUI.php" method="get">
-                                        <input type="hidden" name="favId" value="<?php echo $l['carName']; ?>">
+                                    <form action="EditUsedCarListing.php" method="get">
+                                        <input type="hidden" name="carID" value="<?php echo $l['carID']; ?>">
                                         <button type="submit" class="btn1">Edit</button>
                                     </form>
                                 </td>
