@@ -1,8 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-bottom: 10px;
+}
+
+body {
+    background-color: #f7f7f7;
+    padding: 20px;
 }
 
 h1 {
@@ -25,6 +37,19 @@ h1 {
 
 .profile-icon {
     font-size: 24px;
+}
+
+.backBtn {
+    display: inline-block;
+    margin: 10px 0;
+    color: #000;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.backBtn:hover {
+    text-decoration: underline;
+    color: red;
 }
 
 .navBar {
@@ -50,26 +75,43 @@ h1 {
     text-decoration: underline;
 }
 
-table{
-    width: 98%;
+.tableDiv {
+    margin: 10px 25px 0px 25px;
 }
-table, th,td{
-    border: solid 2px black;    
+
+table {
+    width: 100%;
     border-collapse: collapse;
-    margin-top: 100px;
-    margin-left: 20px;
 }
 
-h1{
-    /* margin-top: 100px; */
-    font-size: 48px;
+thead th {
+    border: 1px solid;
+    border-color: rgb(177, 177, 177);
+    background-color: #e0e0e0;
+    padding: 30px;
+    text-align: center;
 }
 
-th{
-    font-size: 20px;
+tbody td {
+    border: 1px solid;
+    border-color: rgb(177, 177, 177);
+    padding: 30px;
+    text-align: center;
+    border-top: 1px solid #ccc;
 }
-td{
-    height: 100px;
+
+tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+.tableBtn {
+    color: #000;
+    text-decoration: underline;
+}
+
+td a:hover {
+    text-decoration: underline;
+    color: red;
 }
 
 .container{
