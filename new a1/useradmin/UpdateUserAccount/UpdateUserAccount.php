@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if ($oldPassword == $newPassword){
-        echo "<script>alert('old password and new password is same!'); window.location.href='UpdateUserAccountUI.html';</script>";
+        echo "<script>alert('Old password and new password is same!'); window.location.href='../ViewUserAccount/ViewUserAccountUI.php';</script>";
     }else{
         $result = $controller->updateUserAccount($userId,$username,$newPassword,$email,$phoneNumber,$dob);
     }
