@@ -42,10 +42,10 @@ $totalPages = ceil($totalCars / $perPage);
 
     <!-- Navigation Tabs -->
 	<nav class="navBar">
-		<a href="BuyerHomeUI.php" id="BuyerHomeBtn">Home</a>
+		<a href="../Buyer/BuyerHomeUI.php" id="BuyerHomeBtn">Home</a>
 		<a href="../Car/Car.php" id="SearchBuyerListingBtn">Listings</a>
-		<a href="ViewBuyerFavListingUI.php" id="ViewBuyerFavListingBtn">Favourites</a>
-		<a href="BuyerRateReviewUI.php" id="BuyerRateReviewBtn">Rate and Review Agents</a>
+		<a href="../BuyerViewBuyerFavListingUI.php" id="ViewBuyerFavListingBtn">Favourites</a>
+		<a href="../BuyerRateReviewUI.php" id="BuyerRateReviewBtn">Rate and Review Agents</a>
 	</nav>
 
 <div class="search-section">

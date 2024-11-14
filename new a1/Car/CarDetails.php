@@ -45,8 +45,8 @@ if (!$car) {
 	<nav class="navBar">
 		<a href="../<?php echo $_SESSION["name"]; ?>/<?php echo $_SESSION["name"]; ?>HomeUI.php" id="BuyerHomeBtn">Home</a>
 		<a href="../Car/Car.php" id="SearchBuyerListingBtn">Listings</a>
-		<a href="ViewBuyerFavListingUI.php" id="ViewBuyerFavListingBtn">Favourites</a>
-		<a href="BuyerRateReviewUI.php" id="BuyerRateReviewBtn">Rate and Review Agents</a>
+		<a href="../Buyer/ViewBuyerFavListingUI.php" id="ViewBuyerFavListingBtn">Favourites</a>
+		<a href="../Buyer/BuyerRateReviewUI.php" id="BuyerRateReviewBtn">Rate and Review Agents</a>
 	</nav>
 
 <div class="car-details">
