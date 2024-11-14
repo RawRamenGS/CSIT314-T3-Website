@@ -11,7 +11,7 @@ $sellers = $CreateListingController->getSellersUsernames();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Title</title>
+    <title>Create Car Listing</title>
     <link rel="stylesheet" href="CreateUsedCarListing.css">
 </head>
 <body>

@@ -17,7 +17,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View User Profiles</title>
+    <title>View User Account</title>
     <link rel="stylesheet" href="SearchUserAccountUI.css">
 </head>
 <body>

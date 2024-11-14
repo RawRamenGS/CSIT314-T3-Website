@@ -27,7 +27,7 @@ $totalPages = ceil($totalCars / $perPage);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website Title</title>
+    <title>Car Listings</title>
     <link rel="stylesheet" href="Car.css">>
 </head>
 <body>
@@ -49,7 +49,7 @@ $totalPages = ceil($totalCars / $perPage);
 	</nav>
 
 <div class="search-section">
-    <h2>Start by searching for your favorite brand of car!</h2>
+    <h2>Search for your desired car or browse through the list!</h2>
     <input type="text" class="search-box" placeholder="Search">
 </div>
 
