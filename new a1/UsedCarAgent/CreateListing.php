@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Display result to the user
     if ($result === true) {
-        echo "<script>alert('Listing created'); window.location.href='../Car/Car.php';</script>";
+        echo "<script>alert('Listing created'); window.location.href='../UsedCarAgent/ManageUsedCarListing.php';</script>";
     } else {
         echo "<script>alert('$result'); window.history.back();</script>";
     }
