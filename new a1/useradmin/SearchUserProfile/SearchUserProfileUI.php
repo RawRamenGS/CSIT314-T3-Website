@@ -18,12 +18,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View User Profiles</title>
-    <link rel="stylesheet" href="searchuserprofile.css">
+    <link rel="stylesheet" href="SearchUserProfileUI.css">
 </head>
 <body>
+	<a href="../ViewUserProfile/ViewUserProfileUI.php" class="backBtn">&lt; Back</a>
     <div class="container">  
-        <h1>View User Account</h1>
-        <form action="SearchUserAccountUI.php" method="post">
+        <h1>View User Profiles</h1>
+        <form action="SearchUserProfileUI.php" method="post">
         <div class ="input-container">
             <input type="text" placeholder="search" id="search" name="search">
             <button class="btnSearch">Search</button>

@@ -18,9 +18,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View User Profiles</title>
-    <link rel="stylesheet" href="searchuseraccount.css">
+    <link rel="stylesheet" href="SearchUserAccountUI.css">
 </head>
 <body>
+	<a href="../ViewUserAccount/ViewUserAccountUI.php" class="backBtn">&lt; Back</a>
     <div class="container">  
         <h1>View User Account</h1>
         <form action="SearchUserAccountUI.php" method="post">
