@@ -72,35 +72,26 @@ header h1 {
 }
 
 /* Search Section Styles */
-.search-section {
-    padding: 20px;
-    text-align: center;
-    margin-bottom: 20px;
+.search-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    width: 100%;
 }
 
-.search-section p {
-    margin-bottom: 10px;
-    font-size: 18px;
-    color: #333;
-}
-
-.search-bar {
-    display: inline-block;
-    position: relative;
-}
-
-.search-bar input[type="text"] {
-    width: 400px;
-    padding: 10px 15px;
-    font-size: 16px;
+.searchTxt {
+    padding: 10px;
+    width: 100%;
     border: 1px solid #ccc;
-    border-radius: 25px;
-    transition: border-color 0.3s ease;
+    border-radius: 4px 0 0 4px;
 }
 
-.search-bar input[type="text"]:focus {
-    outline: none;
-    border-color: #888;
+.search-container button {
+    padding: 15px 25px;
+    border: 1px solid #ccc;
+    border-left: none;
+    background-color: #ddd;
+    border-radius: 0 4px 4px 0;
 }
 
 /* Listings Section Styles */
