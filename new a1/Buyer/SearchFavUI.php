@@ -1,10 +1,19 @@
 <?php
-session_start();
- require_once ('FavController.php');
- $controller = new FavController();
- $favs = $controller->getfavCar($_SESSION['id']);
+require_once('SearchFavController.php');
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $search = trim($_POST['search']);
+    
+    $controller = new SearchFavController();
+    $favs = $controller->searchFav($search);
+
+}
 
 ?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,7 +45,7 @@ session_start();
         <p>Search your favourites!</p>
         <form action="SearchFavUI.php" method="post">
         <div class="search-bar">
-            <input type="text" placeholder="Search" name="search">
+            <input type="text" placeholder="Search">
             <button type="submit">Search</button>
         </div>
         </form>
@@ -81,6 +90,3 @@ session_start();
                 </tbody>
             </table>
         </div>
-    
-</body>
-</html>
