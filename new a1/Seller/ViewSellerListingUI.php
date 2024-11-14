@@ -1,3 +1,17 @@
+<?php
+// Include the controller
+session_start();
+
+if (!isset($_SESSION['is_logged_in']) || $_SESSION['is_logged_in'] !== true) {
+    header("Location: ../Login/Login.html"); // Redirect to login page if not authenticated
+    exit;
+}
+require_once 'ViewSellerListingController.php';
+
+$controller = new ViewSellerListingController();
+$listing = $controller->getfavcar();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,38 +19,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listings</title>
     <link rel="stylesheet" href="ViewSellerListingUI.css">
-	<script>
-        // JavaScript function for search functionality
-        function searchListings() {
-            // Get the search input value
-            const searchInput = document.getElementById('searchInput').value.toLowerCase();
-            
-            // Get all the rows in the table (except the header row)
-            const rows = document.querySelectorAll('table tbody tr');
-            
-            // Loop through each row
-            rows.forEach(row => {
-                const cells = row.getElementsByTagName('td');
-                let matchFound = false;
-
-                // Loop through each cell in the row (name, listed on, price, etc.)
-                for (let i = 0; i < cells.length; i++) {
-                    if (cells[i].textContent.toLowerCase().includes(searchInput)) {
-                        matchFound = true;
-                        break; // If a match is found, no need to check further cells
-                    }
-                }
-                
-                // Show the row if a match is found, otherwise hide it
-                if (matchFound) {
-                    row.style.display = '';
-                } else {
-                    row.style.display = 'none';
-                }
-            });
-        }
-    </script>
 </head>
+
 <body>
     <header>
         <h1>Seller</h1>
@@ -62,43 +46,30 @@
 
             <table>
                 <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Listed On</th>
+                    <tr><th>Car Name</th>
+                        <th>Seller</th>
                         <th>Price</th>
-                        <th>Number of Favourites</th>
-                        <th>Number of Views</th>
+                        <th>The Number of Favourite</th>
+                        <th>The Number of View</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Car 1</td>
-                        <td>6/11/2024</td>
-                        <td>$200</td>
-                        <td>11</td>
-                        <td>25</td>
-                    </tr>
-                    <tr>
-                        <td>Car 2</td>
-                        <td>1/11/2024</td>
-                        <td>$300</td>
-                        <td>41</td>
-                        <td>94</td>
-                    </tr>
-                    <tr>
-                        <td>Car 3</td>
-                        <td>20/10/2024</td>
-                        <td>$100</td>
-                        <td>24</td>
-                        <td>65</td>
-                    </tr>
-                    <tr>
-                        <td>Car 4</td>
-                        <td>29/10/2024</td>
-                        <td>$180</td>
-                        <td>30</td>
-                        <td>70</td>
-                    </tr>
+                    <?php 
+                        if(is_array($listing) && !empty($listing)) {
+                        foreach ($listing as $l) { ?>
+                            <tr>
+                                <td><?php echo htmlspecialchars($l['carName']); ?></td>
+                                <td><?php echo htmlspecialchars($l['username']); ?></td>
+                                <td><?php echo htmlspecialchars($l['price']); ?></td>
+                                <td><?php echo htmlspecialchars($l['favourites']); ?></td>
+                                <td><?php echo htmlspecialchars($l['views']); ?></td>
+                            </tr>
+                        <?php } 
+                    } else { ?>
+                        <tr>
+                            <td colspan="7">No shortlisted found.</td>
+                        </tr>
+                    <?php } ?>
                 </tbody>
             </table>
         </div>
