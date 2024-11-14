@@ -1,11 +1,9 @@
 <?php
-// Hardcoded example car data
-$cars = [
-    ["id" => 1, "image" => "images/car-placeholder.png", "name" => "Car 1", "price" => "$200", "favourites" => 11],
-    ["id" => 2, "image" => "images/car-placeholder.png", "name" => "Car 2", "price" => "$300", "favourites" => 41],
-    ["id" => 3, "image" => "images/car-placeholder.png", "name" => "Car 3", "price" => "$100", "favourites" => 24],
-    ["id" => 4, "image" => "images/car-placeholder.png", "name" => "Car 4", "price" => "$180", "favourites" => 30],
-];
+session_start();
+ require_once ('FavController.php');
+ $controller = new FavController();
+ $favs = $controller->getfavCar($_SESSION['id']);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,7 +11,7 @@ $cars = [
     <meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Favourite Car Listings</title>
-    <link rel="stylesheet" href="ViewBuyerFavListingUI.css">
+    <link rel="stylesheet" href="ViewBuyerFavListingUi.css">
 </head>
 <body>
     <!-- Header -->
@@ -41,50 +39,45 @@ $cars = [
         </div>
     </section>
 
-    <!-- Listings Section -->
-    <section class="listings-section">
-        <h2>Your Favourite Listings</h2>
-        <div class="car-list" id="car-list">
-            <!-- Car cards will be inserted here by JavaScript -->
+    <div class="container-table">
+            <table>
+                <thead>
+                    <tr><th>Favourite id</th>
+                        <th>Car Name</th>
+                        <th>Date-Listed</th>
+                        <th>Price</th>
+                        <th>Description</th>
+                        <th>Agent Name</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php 
+                        if(is_array($favs) && !empty($favs)) {
+                        foreach ($favs as $fav) { ?>
+                            <tr>
+                                <td><?php echo htmlspecialchars($fav['id']); ?></td>
+                                <td><?php echo htmlspecialchars($fav['carName']); ?></td>
+                                <td><?php echo htmlspecialchars($fav['dateListed']); ?></td>
+                                <td><?php echo htmlspecialchars($fav['price']); ?></td>
+                                <td><?php echo htmlspecialchars($fav['description']); ?></td>
+                                <td><?php echo htmlspecialchars($fav['username']); ?></td>
+                                <td>
+                                    <form action="../Buyer/RemoveUI.php" method="post">
+                                        <input type="hidden" name="favId" value="<?php echo $fav['id']; ?>">
+                                        <button type="submit" class="btn1">Remove</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        <?php } 
+                    } else { ?>
+                        <tr>
+                            <td colspan="7">No shortlisted found.</td>
+                        </tr>
+                    <?php } ?>
+                </tbody>
+            </table>
         </div>
-    </section>
-
-    <!-- JavaScript to display favourite cars -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Get the favourite car IDs from local storage
-            let favouriteCarIds = JSON.parse(localStorage.getItem('favouriteCarIds')) || [];
-
-            // Hardcoded example car data
-            const cars = <?php echo json_encode($cars); ?>;
-
-            // Filter the cars to only include those that are favourited
-            const favouritedCars = cars.filter(car => favouriteCarIds.includes(car.id.toString()));
-
-            const carListElement = document.getElementById('car-list');
-
-            if (favouritedCars.length > 0) {
-                favouritedCars.forEach(car => {
-                    const carCard = document.createElement('a');
-                    carCard.href = 'ViewBuyerListingUI.php?id=' + car.id;
-                    carCard.className = 'car-card-link';
-                    carCard.innerHTML = `
-                        <div class="car-card">
-                            <img src="${car.image}" alt="${car.name}" class="car-image">
-                            <h3>${car.name}</h3>
-                            <p>${car.price}</p>
-                            <p class="favourites">
-                                <span class="favourites-count">${car.favourites}</span>
-                                <button class="heart-btn liked" data-car-id="${car.id}" disabled>❤️</button>
-                            </p>
-                        </div>
-                    `;
-                    carListElement.appendChild(carCard);
-                });
-            } else {
-                carListElement.innerHTML = '<p class="no-favourites-message">You have no favourite listings.</p>';
-            }
-        });
-    </script>
+    
 </body>
 </html>
