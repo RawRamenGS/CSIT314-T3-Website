@@ -10,10 +10,10 @@ $userId = $_GET['userId'];  // Assuming the userId is passed as a GET parameter
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Update Page</title>
-    <link rel="stylesheet" href="updateuseraccount.css">
+    <link rel="stylesheet" href="UpdateUserAccountUI.css">
 </head>
 <body>
-    <h1>Update Page</h1>
+	<a href="../ViewUserAccount/ViewUserAccountUI.php" class="backBtn">&lt; Back</a>
     <form action="UpdateUserAccount.php" method="post">
         <input type="hidden" name="userId" value="" id="userIdInput">
         <div class="Personal-Detail">

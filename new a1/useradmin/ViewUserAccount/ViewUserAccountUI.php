@@ -10,7 +10,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View User Profiles</title>
-    <link rel="stylesheet" href="viewuserAccount.css">
+    <link rel="stylesheet" href="ViewUserAccountUI.css">
 </head>
 <body>
 <a href="../landingPage.php" class="backBtn">&lt; Back</a>

@@ -9,14 +9,14 @@ $profileId = $_GET['profileId'];  // Assuming the userId is passed as a GET para
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update Page</title>
-    <link rel="stylesheet" href="Update.css">
+    <title>Update Profile Page</title>
+    <link rel="stylesheet" href="UpdateUserProfileUI.css">
 </head>
 <body>
-    <h1>Update Page</h1>
+	<a href="../ViewUserProfile/ViewUserProfileUI.php" class="backBtn">&lt; Back</a>
+    <h1>Update Profile</h1>
     <form action="UpdateUserProfile.php" method="post">
         <input type="hidden" name="profileId" value="" id="profileIdInput">
-        <div class="sellerwelcome">Welcome to Profile Creation Page</div>
         <div class="input-container">
             <label for="pf">Update Profile Name:</label>
             <input type="text" id="profileName" name="profileName" required>

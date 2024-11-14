@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     // Display result to the user
     if ($result === true) {
-        echo "<script>alert('Registration successful!'); window.location.href='../Login.html';</script>";
+        echo "<script>alert('Registration successful!'); window.location.href='../landingPage.php';</script>";
     } else {
         echo "<script>alert('$result'); window.history.back();</script>";
     }
