@@ -27,9 +27,10 @@ if (!isset($_SESSION['is_logged_in']) || $_SESSION['is_logged_in'] !== true) {
 
     <div class="form">
     <h1>Welcome to Admin page, <?php echo $_SESSION['username'] ?> what would like to do!</h1>
-    <a href="CreateUserAccount/CreateUserAccountUI.html" class="a1"><button class="btn1" >Create new user account</button></a>
-    <a href="ViewUserAccount/ViewUserAccountUI.php" class="a1"><button class="btn1">View user accounts</button></a>
-    <a href="ViewUserProfile/ViewUserProfileUI.php" class="a1"><button class="btn1" >View User profiles</button></a>
+    <a href="CreateUserAccount/CreateUserAccountUI.html" class="a1"><button class="btn1" >Create New User Account</button></a>
+	<a href="CreateUserProfile/CreateUserProfileUI.html" class="a1"><button class="btn1" >Create New User Profile</button></a>
+    <a href="ViewUserAccount/ViewUserAccountUI.php" class="a1"><button class="btn1">View User Accounts</button></a>
+    <a href="ViewUserProfile/ViewUserProfileUI.php" class="a1"><button class="btn1" >View User Profiles</button></a>
 </div>
 </body>
 </html>
