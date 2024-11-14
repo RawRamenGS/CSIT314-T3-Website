@@ -5,6 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listings</title>
     <link rel="stylesheet" href="ViewSellerListingUI.css">
+	<script>
+        // JavaScript function for search functionality
+        function searchListings() {
+            // Get the search input value
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            
+            // Get all the rows in the table (except the header row)
+            const rows = document.querySelectorAll('table tbody tr');
+            
+            // Loop through each row
+            rows.forEach(row => {
+                const cells = row.getElementsByTagName('td');
+                let matchFound = false;
+
+                // Loop through each cell in the row (name, listed on, price, etc.)
+                for (let i = 0; i < cells.length; i++) {
+                    if (cells[i].textContent.toLowerCase().includes(searchInput)) {
+                        matchFound = true;
+                        break; // If a match is found, no need to check further cells
+                    }
+                }
+                
+                // Show the row if a match is found, otherwise hide it
+                if (matchFound) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -25,8 +56,8 @@
     <a href="SellerHomeUI.php" class="backBtn">&lt; Back</a>
         <div class="tableDiv">
             <div class="search-container">
-                <input type="text" placeholder="Search" class="searchTxt">
-                <button type="submit" class="btn" id="searchBtn">Search</button>
+                <input type="text" id="searchInput" placeholder="Search" class="searchTxt">
+                <button type="button" class="btn" id="searchBtn" onclick="searchListings()">Search</button>
             </div>
 
             <table>
