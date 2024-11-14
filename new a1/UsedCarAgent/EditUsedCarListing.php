@@ -1,3 +1,11 @@
+<?php
+//require_once 'EditUsedCarListingController.php';
+if (!isset($_GET['carID']) || empty($_GET['carID'])) {
+    die('Error: carID not specified.');
+}
+
+$carID = $_GET['carID'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,16 +35,17 @@
         <div class="content-wrapper">
             <div class="list-item">
                 <h2>Edit Car Listing</h2>
-                <form>
+                <form action="EditUsedCarListingController.php" method="post">
+					<input type="hidden" id="carID" name="carID" value="<?= htmlspecialchars($carID) ?>">
                     <label for="name">Name</label>
                     <!-- PHP Takes over here, EXAMPLE USE value="Hello" in <input type.... placeholder="" value=""> for the name-->
-                    <input type="text" id="name" placeholder="Enter item name">
+                    <input type="text" id="name" name="carName" placeholder="Enter item name">
 
                     <label for="price">Price</label>
-                    <input type="text" id="price" placeholder="Enter item price">
+                    <input type="text" id="price" name="price" placeholder="Enter item price">
 
                     <label for="description">Description</label>
-                    <textarea id="description" placeholder="Enter item description"></textarea>
+                    <textarea id="description" name="description" placeholder="Enter item description"></textarea>
 
                     <button type="submit" class="editBtn">Save</button>
                     <a href="ManageUsedCarListing.php"><button type="button" class="cancelBtn">Cancel</button></a>
