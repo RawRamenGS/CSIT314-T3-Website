@@ -36,17 +36,17 @@ class SearchCarEntity {
     }
 
     public function SearchCar($carname, $perPage, $offset) {
+		$strCar = "%" . strval($carname) . "%";
         $query = "SELECT carID, carName, dateListed, price, views, description, agent 
                   FROM carlisting 
-                  WHERE carName = ? 
+                  WHERE UPPER(carName) LIKE UPPER(?) 
                   LIMIT ? OFFSET ?";
         
         $stmt = $this->conn->prepare($query);
         if (!$stmt) {
             die("Prepare failed: (" . $this->conn->errno . ") " . $this->conn->error);
         }
-
-        $stmt->bind_param("sii", $carname, $perPage, $offset);
+        $stmt->bind_param("sii", $strCar, $perPage, $offset);
         $stmt->execute();
         $result = $stmt->get_result();
     

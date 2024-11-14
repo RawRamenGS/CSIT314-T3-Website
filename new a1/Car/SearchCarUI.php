@@ -20,7 +20,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $totalCars = $searchController->getTotalCar($carname);
     $totalPages = ceil($totalCars / $perPage);
     $search = $searchController->SearchCar($carname,$perPage,$offset);
-    print_r($search);
     // Get the total number of cars for pagination (to calculate total pages)
     
 }
@@ -32,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Car Listings</title>
-    <link rel="stylesheet" href="Car.css">>
+    <link rel="stylesheet" href="Car.css">
 </head>
 <body>
 
@@ -63,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="listings">
     <?php
     // Loop through each car from the controller data and display it
-    if (!empty($search)) {
+    if (!empty($search) && gettype($search) != "string") {
         foreach ($search as $car) {
             echo '<div class="listing-card">';
             echo '<a href="CarDetails.php?id=' . urlencode($car['carID']) . '">';
