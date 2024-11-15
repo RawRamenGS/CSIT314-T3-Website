@@ -1,0 +1,132 @@
+/* Universal Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-color: #f7f7f7;
+    padding: 20px;
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+header h1 {
+    font-size: 24px;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+}
+
+.profile-icon {
+    font-size: 24px;
+}
+
+.logoutBtn {
+    padding: 5px 30px;
+    border-radius: 50px;
+}
+
+.logoutBtn:hover {
+    background-color: #d5d4d4;
+}
+
+/* Car Details Section */
+.car-details-section {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.car-details {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.car-image-large {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    transition: transform 0.2s ease;
+}
+
+.car-image-large:hover {
+    transform: scale(1.05);
+}
+
+.car-details h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.car-details .price {
+    font-size: 24px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.car-details .description {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.car-details .favourites {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+/* Style the heart button */
+.heart-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 22px;
+    margin-left: 10px;
+    padding: 0;
+    display: inline-block;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.heart-btn:hover {
+    color: #e84351;
+}
+
+.heart-btn.liked {
+    color: red;
+    animation: pop 0.3s;
+}
+
+.heart-btn:disabled {
+    cursor: default;
+    opacity: 0.6;
+}
+
+/* Animation for the liked heart */
+@keyframes pop {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.4);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
