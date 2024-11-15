@@ -23,25 +23,9 @@ class ManageUsedCarListingEntity{
         }else{
             return "No business yet";
         }
-    }
-	
-	public function deleteCarListing($carID) {
-        try {
-            // Prepare the DELETE statement
-            $stmt = $this->conn->prepare("DELETE FROM carlisting WHERE carID = ?");
-            $stmt->bind_param("i", $carID);
 
-            // Execute the statement
-            if ($stmt->execute()) {
-                return true; // Deletion success
-            } else {
-                return "Failed to delete.";
-            }
-        } catch (Exception $e) {
-            return "Error: " . $e->getMessage();
-        } finally {
-            $stmt->close();
-        }
+
+    
     }
  }
 

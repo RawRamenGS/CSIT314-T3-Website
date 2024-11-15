@@ -38,9 +38,9 @@ $listing = $controller->getlisting();
     <div>
         <a href="UsedCarAgentHomeUI.php" class="backBtn">&lt; Back</a>
         <div class="tableDiv">
-        <form action="SearchUsedCarListingUI.php">
+        <form action="SearchUsedCarListingUI.php" method="POST">
             <div class="search-container">
-                <input type="text" placeholder="Search" class="searchTxt" name = "search">
+                <input type="text" placeholder="Search" class="searchTxt" name ="search" required>
                 <button type="submit" class="btn" id="searchBtn">Search</button>
             </div>
             </form>
@@ -50,6 +50,7 @@ $listing = $controller->getlisting();
                     <tr><th>Car Name</th>
                         <th>Seller</th>
                         <th>Price</th>
+                        <th>The Number of Favourite</th>
                         <th>The Number of View</th>
                         <th></th>
                     </tr>
@@ -62,23 +63,19 @@ $listing = $controller->getlisting();
                                 <td><?php echo htmlspecialchars($l['carName']); ?></td>
                                 <td><?php echo htmlspecialchars($l['username']); ?></td>
                                 <td><?php echo htmlspecialchars($l['price']); ?></td>
+                                <td><?php echo htmlspecialchars($l['favourites']); ?></td>
                                 <td><?php echo htmlspecialchars($l['views']); ?></td>
                                 <td>
                                     <form action="EditUsedCarListing.php" method="get">
                                         <input type="hidden" name="carID" value="<?php echo $l['carID']; ?>">
                                         <button type="submit" class="btn1">Edit</button>
-										</form>
-											<form action="ManageUsedCarListing.php" method="get">
-											<input type="hidden" name="carID" value="<?php echo $l['carID']; ?>">
-											<input type="hidden" name="delete" value="1">
-                                        <button type="submit" class="btn2">Delete</button>
                                     </form>
                                 </td>
                             </tr>
                         <?php } 
                     } else { ?>
                         <tr>
-                            <td colspan="7">No listing found.</td>
+                            <td colspan="7">No shortlisted found.</td>
                         </tr>
                     <?php } ?>
                 </tbody>
