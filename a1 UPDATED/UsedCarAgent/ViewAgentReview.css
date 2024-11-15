@@ -1,0 +1,109 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background-color: #f9f9f9;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+h1 {
+    font-size: 24px;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+}
+
+.logoutBtn {
+    padding: 5px 30px;
+    border-radius: 50px;
+}
+
+.logoutBtn:hover {
+    background-color: #d5d4d4;
+}
+
+.profile-icon {
+    font-size: 24px;
+}
+
+.navBar {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 50px;
+}
+
+.navBar a {
+    color: #000;
+    flex: 1;
+    padding: 10px 20px;
+    border: 1px solid;
+    text-align: center;
+    text-decoration: none;
+}
+
+.navBar a:hover {
+    background-color: #eaeaea;
+    border-color: black;
+    color: red;
+    text-decoration: underline;
+}
+
+.reviews-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.review-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+}
+
+.user-info {
+    display: flex;
+    margin-bottom: 15px;
+    flex-direction: column;
+}
+
+
+
+.username {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.role {
+    font-size: 12px;
+}
+
+.rating {
+    color: red;
+    font-size: 15px;
+    margin-top: 3px;
+}
+
+.review-content {
+    margin-top: 10px;
+}
+
+.review-content p {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
