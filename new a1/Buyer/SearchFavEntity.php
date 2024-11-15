@@ -13,13 +13,14 @@
                                         carlisting.description, useraccount.username FROM favourites
                                         INNER JOIN carlisting ON carlisting.carID = favourites.carID
                                         JOIN useraccount ON useraccount.id = carlisting.Agent
-                                        WHERE UPPER(carlisting.carName) LIKE UPPER(?)";
+                                        WHERE favourites.favouriteBy = ?   
+                                        and UPPER(carlisting.carName) LIKE UPPER(?)";
         
         $stmt = $this->conn->prepare($query);
         if (!$stmt) {
             die("Prepare failed: (" . $this->conn->errno . ") " . $this->conn->error);
         }
-        $stmt->bind_param("s", $strCar,);
+        $stmt->bind_param("is",$_SESSION['id'],$strCar);
         $stmt->execute();
         $result = $stmt->get_result();
     

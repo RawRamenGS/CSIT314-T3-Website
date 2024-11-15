@@ -1,18 +1,15 @@
 <?php
+session_start();
 require_once('SearchFavController.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $search = trim($_POST['search']);
-    
     $controller = new SearchFavController();
-    $favs = $controller->searchFav($search);
-
+    $favs = $controller->searchFav($search,$_SESSION['id']);
+    
 }
 
 ?>
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -40,12 +37,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		<a href="BuyerRateReviewUI.php" id="BuyerRateReviewBtn">Rate and Review Agents</a>
     </nav>
 
+    <a href="ViewBuyerFavListingUI.php">Back</a>
     <!-- Search Section -->
     <section class="search-section">
         <p>Search your favourites!</p>
         <form action="SearchFavUI.php" method="post">
         <div class="search-bar">
-            <input type="text" placeholder="Search">
+            <input type="text" placeholder="Search" name ="search"required>
             <button type="submit">Search</button>
         </div>
         </form>
