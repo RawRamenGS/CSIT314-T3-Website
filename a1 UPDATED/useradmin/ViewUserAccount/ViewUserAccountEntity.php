@@ -1,7 +1,7 @@
 <?php
 require_once('../../connect.php');
 
-class ViewUserProfileEntity {
+class ViewUserAccountEntity {
     private $conn;
 
     public function __construct() {
@@ -9,20 +9,20 @@ class ViewUserProfileEntity {
         $this->conn = $conn;
     }
 
-    public function retrieveAllProfiles() {
+    public function retrieveAllUsers() {
         // Prepare and execute the query to select all users
-        $stmt = $this->conn->prepare("SELECT profileId, Name, Description, status FROM userprofiles");
+        $stmt = $this->conn->prepare("SELECT id, username, email, phonenumber, dob, status FROM useraccount");
         $stmt->execute();
         $result = $stmt->get_result();
 
         // Fetch all rows as an array of associative arrays
-        $profiles  = [];
+        $users = [];
         while ($row = $result->fetch_assoc()) {
-            $profiles [] = $row;
+            $users[] = $row;
         }
 
         $stmt->close();
-        return $profiles ; // Return the array of user data
+        return $users; // Return the array of user data
     }
 }
 
