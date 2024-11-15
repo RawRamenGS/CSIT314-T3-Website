@@ -1,7 +1,7 @@
 <?php
     require_once('ViewUserProfileController.php');
     $controller = new ViewUserProfileController(); 
-    $allUsers = $controller->getAllUsers();
+    $allProfiles = $controller->getAllProfiles();
 ?>
 
 <!DOCTYPE html>
@@ -33,8 +33,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <?php if(!empty($allUsers)) {
-                        foreach ($allUsers as $user) { ?>
+                    <?php if(!empty($allProfiles)) {
+                        foreach ($allProfiles as $user) { ?>
                             <tr>
                                 <td><?php echo htmlspecialchars($user['profileId']); ?></td>
                                 <td><?php echo htmlspecialchars($user['Name']); ?></td>
