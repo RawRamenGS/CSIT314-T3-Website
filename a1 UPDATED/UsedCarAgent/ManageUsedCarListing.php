@@ -21,7 +21,7 @@ $listing = $controller->getlisting();
 </head>
 <body>
     <header>
-        <h1>Website Title</h1>
+        <h1>Manage Listing</h1>
         <div class="user-profile">
             <div class="profile-icon">&#128100;</div>
             <a href="../Login/Logout.php"><button class="logoutBtn">Logout</button></a>
