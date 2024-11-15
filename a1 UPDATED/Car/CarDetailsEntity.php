@@ -25,6 +25,35 @@ class CarDetailsEntity {
         $this->carID = $carID;
     }
 
+    public static function updateCarView($carID) {
+        global $conn;
+        // Fetch the current views count for the given carID
+        $stmt = $conn->prepare('SELECT views FROM carlisting WHERE carID = ?');
+        $stmt->bind_param('i', $carID);
+        $stmt->execute();
+        $stmt->bind_result($currentViews);
+        
+        if ($stmt->fetch()) {
+            // Increment the views count
+            $newViews = $currentViews + 1;
+            $stmt->close();
+    
+            // Update the views count in the database
+            $updateStmt = $conn->prepare('UPDATE carlisting SET views = ? WHERE carID = ?');
+            $updateStmt->bind_param('ii', $newViews, $carID);
+            $updateStmt->execute();
+            $updateStmt->close();
+    
+            return true;
+        } else {
+            // If no matching carID is found, handle gracefully
+            $stmt->close();
+            return false;
+        }
+    }
+
+    
+
     // Static method to retrieve a car by ID
     public static function getCarById($carID) {
 		global $conn;
@@ -40,7 +69,7 @@ class CarDetailsEntity {
             // Fetch the record and create a CarDetailsEntity object
             $row = $result->fetch_assoc();
             $car = new CarDetailsEntity($row["carName"], $row["dateListed"], $row["price"],
-                                        $row["favourites"], $row["views"], $row["description"],
+                                        $row["favourites"],$row["views"],$row["description"],
                                         $row["agent"], $row["carID"]);
         } else {
             $car = null; // No car found with the given ID
@@ -89,4 +118,22 @@ class CarDetailsEntity {
 
         return $favouritesCount;
     }
+
+    public static function getViewsCount($carID) {
+        global $conn;
+
+    // SQL query to get the count of favourites for the specific car
+    $sql = "SELECT COUNT(*) views FROM carlisting WHERE carID = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $carID);
+    $stmt->execute();
+    $stmt->bind_result($viewsCount);
+    $stmt->fetch();
+    $stmt->close();
+
+    return $viewsCount;
 }
+
+    
+}
+

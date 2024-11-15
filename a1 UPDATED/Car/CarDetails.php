@@ -3,18 +3,29 @@
 require_once 'CarController.php';
 // Include the controller
 require_once 'CarDetailsController.php';
+require_once 'UpdateCarViewController.php';
 
 // Get the carID from the URL (make sure to sanitize it)
 $carID = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
+if($_SESSION['viewed'] != "viewed"){
+  $controller = new UpdateCarViewController();
+  $view = $controller->updateCarView($carID);
+  print_r($view);
+  $_SESSION['viewed'] = "viewed";
+}
+
 // Instantiate the controller and get the specific car data
+
 $carDetailsController = new CarDetailsController();
 $car = $carDetailsController->getCarDetails($carID);
 
+
+
 // Check if car details were found
 if (!$car) {
-    echo "<p>Car not found.</p>";
-    exit;
+//     echo "<p>Car not found.</p>";
+//     exit;
 }
 ?>
 
