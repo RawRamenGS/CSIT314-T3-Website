@@ -1,16 +1,18 @@
 <?php
-// Include the controller
 session_start();
+require_once('SearchUsedCarListingController.php');
 
-if (!isset($_SESSION['is_logged_in']) || $_SESSION['is_logged_in'] !== true) {
-    header("Location: ../Login/Login.html"); // Redirect to login page if not authenticated
-    exit;
-}
-require_once 'ManageUsedCarListingController.php';
-
-$controller = new ManageUsedCarListingController();
-$listing = $controller->getlisting();
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['search'])) {
+    $searchTerm = trim($_POST['search']);
+    $controller = new SearchSellerListingController();
+    $listing = $controller->searchlisting($searchTerm,$_SESSION['id'] ); 
+} 
 ?>
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

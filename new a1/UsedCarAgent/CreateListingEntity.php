@@ -12,7 +12,7 @@ class CreateListingEntity {
 
     public function createCarListing($carName, $price, $description, $seller) {
         try {
-            $stmt = $this->conn->prepare("INSERT INTO carlisting(carName, price, description, agent) VALUES (?, ?, ?, ?)");
+            $stmt = $this->conn->prepare("INSERT INTO carlisting(carName, price, description, seller) VALUES (?, ?, ?, ?)");
             $stmt->bind_param("sdsi", $carName, $price, $description, $seller);
 
             if ($stmt->execute()) {

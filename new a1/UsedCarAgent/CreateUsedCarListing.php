@@ -55,7 +55,7 @@ $sellers = $CreateListingController->getSellersUsernames();
                         }
                         ?>
                     </select>
-
+                    
                     <button type="submit" class="createBtn">Create</button>
                 </form>
             </div>
