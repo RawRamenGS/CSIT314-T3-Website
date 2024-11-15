@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = htmlspecialchars($_POST['username']);
     $password = htmlspecialchars($_POST['password']);
 
-    $controller = new AdminLoginController();
+    $controller = new LoginController();
     $result = $controller->loginUser($username, $password);
 
     if (is_array($result) && !empty($result)) {
