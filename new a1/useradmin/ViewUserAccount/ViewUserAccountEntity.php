@@ -9,7 +9,7 @@ class ViewUserAccountEntity {
         $this->conn = $conn;
     }
 
-    public function getAllUsers() {
+    public function retrieveAllUsers() {
         // Prepare and execute the query to select all users
         $stmt = $this->conn->prepare("SELECT id, username, email, phonenumber, dob, status FROM useraccount");
         $stmt->execute();
