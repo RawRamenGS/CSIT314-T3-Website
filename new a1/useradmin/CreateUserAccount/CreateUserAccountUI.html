@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,13 +10,13 @@
 
 <body>
     <a href="../landingPage.php" class="backBtn">&lt; Back</a>
-    <form action="register.php" method="post">
+    <form action="CreateUserAccountController.php" method="post">
         <div class="Personal-Detail">
             <div class="name">
                 <label>Username</label><br>
-                <input type="text" required name="username" >
+                <input type="text" required name="username">
             </div>
-            
+
             <div class="Password">
                 <label>Password</label><br>
                 <input type="password" required name="password"><br>
@@ -23,7 +24,7 @@
                 <label>Retype Password</label><br>
                 <input type="password" required name="confirm_password">
             </div>
-        
+
             <div class="Email">
                 <label>Email</label><br>
                 <input type="text" required name="email">
@@ -40,7 +41,7 @@
                 </div>
 
                 <div class="role">
-                    <label for="role">Register  as a</label><br>
+                    <label for="role">Register as a</label><br>
                     <select name="roles" id="roles">
                         <option value="1" selected>Buyer</option>
                         <option value="2">Seller</option>
@@ -48,11 +49,12 @@
                         <option value="4">UserAdmin</option>
                     </select>
                 </div>
-            </div> 
+            </div>
 
             <button type="submit" class="btn">Register</button>
-            
+
         </div>
     </form>
 </body>
+
 </html>
