@@ -36,7 +36,7 @@ $sellers = $CreateListingController->getSellersUsernames();
         <div class="content-wrapper">
             <div class="list-item">
                 <h2>List your item</h2>
-                <form action="CreateListing.php" method="post">
+                <form action="CreateListingUI.php" method="post">
                     <label for="name">Name</label>
                     <input type="text" id="name" name="carName" placeholder="Enter item name">
 

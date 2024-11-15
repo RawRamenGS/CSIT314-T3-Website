@@ -78,7 +78,7 @@ $listing = $controller->getlisting();
                         <?php } 
                     } else { ?>
                         <tr>
-                            <td colspan="7">No shortlisted found.</td>
+                            <td colspan="7">No listing found.</td>
                         </tr>
                     <?php } ?>
                 </tbody>
