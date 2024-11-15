@@ -22,7 +22,7 @@ class LoginEntity {
 
         if ($result->num_rows > 0) {
             $user = $result->fetch_assoc();
-            if ($user['status'] !== "Suspend") {
+            if ($user['status'] !== "Suspended") {
                 $_SESSION['id'] = $user['id'];
                 $_SESSION['username'] = $user['username'];
                 $_SESSION['name'] = $user['Name'];
