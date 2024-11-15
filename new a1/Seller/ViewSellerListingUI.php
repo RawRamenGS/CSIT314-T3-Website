@@ -40,8 +40,10 @@ $listing = $controller->getfavcar();
     <a href="SellerHomeUI.php" class="backBtn">&lt; Back</a>
         <div class="tableDiv">
             <div class="search-container">
-                <input type="text" id="searchInput" placeholder="Search" class="searchTxt">
-                <button type="button" class="btn" id="searchBtn" onclick="searchListings()">Search</button>
+            <form action="SearchSellerListingUI.php" method="post">
+            <input type="text" placeholder="Search" name="search" class="searchTxt" required>
+            <button type="submit" class="btn">Search</button>
+        </form>
             </div>
 
             <table>
