@@ -2,16 +2,12 @@
 session_start();
 require_once('SearchUsedCarListingController.php');
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['search'])) {
+if ($_SERVER["REQUEST_METHOD"] == "POST" ) {
     $searchTerm = trim($_POST['search']);
-    $controller = new SearchSellerListingController();
-    $listing = $controller->searchlisting($searchTerm,$_SESSION['id'] ); 
+    $controller = new SearchUsedCarListingController();
+    $listings = $controller->searchlisting($searchTerm,$_SESSION['id'] ); 
 } 
 ?>
-
-?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -40,9 +36,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['search'])) {
     <div>
         <a href="UsedCarAgentHomeUI.php" class="backBtn">&lt; Back</a>
         <div class="tableDiv">
-        <form action="SearchUsedCarListingUI.php">
+        <form action="SearchUsedCarListingUI.php" method="POST">
             <div class="search-container">
-                <input type="text" placeholder="Search" class="searchTxt" name = "search">
+                <input type="text" placeholder="Search" class="searchTxt"name = "search" required>
                 <button type="submit" class="btn" id="searchBtn">Search</button>
             </div>
             </form>
@@ -59,8 +55,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['search'])) {
                 </thead>
                 <tbody>
                     <?php 
-                        if(is_array($listing) && !empty($listing)) {
-                        foreach ($listing as $l) { ?>
+                        if(is_array($listings) && !empty($listings)) {
+                        foreach ($listings as $l) { ?>
                             <tr>
                                 <td><?php echo htmlspecialchars($l['carName']); ?></td>
                                 <td><?php echo htmlspecialchars($l['username']); ?></td>

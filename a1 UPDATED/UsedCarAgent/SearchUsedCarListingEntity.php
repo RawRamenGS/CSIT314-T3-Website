@@ -9,10 +9,9 @@ class SearchUsedCarListingEntity {
 
     public function searchlisting($searchTerm) {
         $search = "%" . $searchTerm . "%";
-        print_r($search);
         $stmt = $this->conn->prepare("SELECT c.carID,c.carName, u.username,c.price,c.favourites,c.views FROM carlisting c 
         INNER JOIN useraccount u ON c.seller = u.id 
-        WHERE c.agent = ? AND c.carName LIKE ?");
+        WHERE c.agent = ? AND UPPER(c.carName) LIKE UPPER(?)");
         
         $stmt->bind_param('is',$_SESSION['id'],$search);
         $stmt->execute();
