@@ -1,0 +1,115 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins",sans-serif;
+}
+
+h1{
+    margin-top: 200px;
+    font-size: 50px;
+}
+
+
+form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+
+}
+
+h1{
+    text-align: center;
+}
+
+.Personal-Detail{
+    width: 500px;
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    backdrop-filter: blur(20px);
+    border-radius: 10px;
+    margin: 100px;
+    padding: 20px;
+    font-size: 18px;
+
+}
+
+.Personal-Detail .name{
+    width: 100%;
+    padding: 10px;
+}
+
+.Personal-Detail .name input{
+    width: 100%;
+    border-radius: 10px;
+    height: 25px;
+}
+
+
+.Personal-Detail .Email{
+    width: 100%;
+    padding: 10px;
+}
+
+.Personal-Detail .Email input{
+    width: 100%;
+    border-radius: 10px;
+    height: 25px;
+}
+
+
+.Personal-Detail .Password{
+    width: 100%;
+    padding: 10px;
+}
+
+.Personal-Detail .Password input{
+    width: 100%;
+    border-radius: 10px;
+    height: 25px;
+}
+
+.Personal-Detail .PhoneNumber{
+    width: 100%;
+    padding: 10px;
+}
+
+.Personal-Detail .PhoneNumber input{
+    width: 100%;
+    border-radius: 10px;
+    height: 25px;
+}
+
+.Personal-Detail .dob{
+    width: 100%;
+    padding: 10px;
+    float: left;
+}
+
+.Personal-Detail .dob input{
+    width: 50%;
+}
+
+.Personal-Detail .btn{
+    width: 100%;
+    height: 45px;
+    border: none;
+    outline: none;
+    background-color: #fff;
+    border-radius: 40px;
+    box-shadow: 0 0 10px  rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 16px;
+    color:#333;
+    font-weight: 600;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.Personal-Detail .login-link{
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
