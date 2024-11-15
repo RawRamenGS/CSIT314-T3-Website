@@ -68,6 +68,11 @@ $listing = $controller->getfavcar();
                                         <input type="hidden" name="carID" value="<?php echo $l['carID']; ?>">
                                         <button type="submit" class="btn1">Edit</button>
                                     </form>
+									<form action="ManageUsedCarListing.php" method="get">
+                                        <input type="hidden" name="carID" value="<?php echo $l['carID']; ?>">
+										<input type="hidden" name="delete" value="1">
+                                        <button type="submit" class="btn2">Delete</button>
+                                    </form>
                                 </td>
                             </tr>
                         <?php } 

@@ -39,7 +39,7 @@ class Car {
         // Fetch each record and create a Car object
         while ($row = $result->fetch_assoc()) {
             $cars[] = new Car($row["carName"], $row["dateListed"], $row["price"],
-                $row["favourites"], $row["views"], $row["description"], $row["agent"], $row["carID"]);
+                $row["favourites"], $row["views"], $row["description"], $row["seller"], $row["carID"]);
         }
 
         return $cars;
