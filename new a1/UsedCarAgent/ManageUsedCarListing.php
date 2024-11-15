@@ -48,7 +48,6 @@ $listing = $controller->getfavcar();
                     <tr><th>Car Name</th>
                         <th>Seller</th>
                         <th>Price</th>
-                        <th>The Number of Favourite</th>
                         <th>The Number of View</th>
                         <th></th>
                     </tr>
@@ -61,7 +60,6 @@ $listing = $controller->getfavcar();
                                 <td><?php echo htmlspecialchars($l['carName']); ?></td>
                                 <td><?php echo htmlspecialchars($l['username']); ?></td>
                                 <td><?php echo htmlspecialchars($l['price']); ?></td>
-                                <td><?php echo htmlspecialchars($l['favourites']); ?></td>
                                 <td><?php echo htmlspecialchars($l['views']); ?></td>
                                 <td>
                                     <form action="EditUsedCarListing.php" method="get">
