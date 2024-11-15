@@ -12,8 +12,8 @@ class CreateListingEntity {
 
     public function createCarListing($carName, $price, $description, $seller) {
         try {
-            $stmt = $this->conn->prepare("INSERT INTO carlisting(carName, price, description, seller) VALUES (?, ?, ?, ?)");
-            $stmt->bind_param("sdsi", $carName, $price, $description, $seller);
+            $stmt = $this->conn->prepare("INSERT INTO carlisting(carName, price, description, seller, agent) VALUES (?, ?, ?, ?, ?)");
+            $stmt->bind_param("sdsii", $carName, $price, $description, $seller, $_SESSION['id']);
 
             if ($stmt->execute()) {
                 return true; // Success

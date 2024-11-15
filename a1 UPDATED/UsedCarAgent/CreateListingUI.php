@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once('CreateListingController.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -12,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $seller = trim($_POST['seller']);
 
     // Call the controller's method to create an account
-    $result = $controller->createCarListing($carName, $price, $description, $seller);
+    $result = $controller->createCarListing($carName, $price, $description, $seller, $_SESSION['id']);
 
     // Display result to the user
     if ($result === true) {
