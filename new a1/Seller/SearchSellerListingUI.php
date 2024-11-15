@@ -7,13 +7,15 @@ if (!isset($_SESSION['is_logged_in']) || $_SESSION['is_logged_in'] !== true) {
     exit;
 }
 
-
+$controller = new SearchSellerListingController();
+$userId = $_SESSION['id'];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['search'])) {
     $searchTerm = trim($_POST['search']);
-    $controller = new SearchSellerListingController();
-    $listing = $controller->searchFavCars($searchTerm,$_SESSION['id'] ); 
-} 
+    $listing = $controller->searchFavCars($userId, $searchTerm);
+} else {
+    $listing = [];
+}
 ?>
 
 
@@ -58,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['search'])) {
             </thead>
             <tbody>
                 <?php 
-                if (is_array($listing) && !empty($listing)) {
+                if (!empty($listing)) {
                     foreach ($listing as $l) { ?>
                         <tr>
                             <td><?php echo htmlspecialchars($l['carName']); ?></td>

@@ -9,7 +9,7 @@ if (!isset($_SESSION['is_logged_in']) || $_SESSION['is_logged_in'] !== true) {
 require_once 'ViewSellerListingController.php';
 
 $controller = new ViewSellerListingController();
-$listing = $controller->getlisting();
+$listing = $controller->getfavcar();
 ?>
 
 <!DOCTYPE html>
@@ -49,7 +49,7 @@ $listing = $controller->getlisting();
             <table>
                 <thead>
                     <tr><th>Car Name</th>
-                        <th>Agent</th>
+                        <th>Seller</th>
                         <th>Price</th>
                         <th>The Number of Favourite</th>
                         <th>The Number of View</th>

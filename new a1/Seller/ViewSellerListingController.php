@@ -2,9 +2,9 @@
 require_once 'ViewSellerListingEntity.php';
 
 class ViewSellerListingController {
-    public function getlisting(){
+    public function getfavcar(){
         $entity = new ViewSellerListingEntity();
-        return $entity->getlisting();
+        return $entity->getfavcar();
     }
    
 }
