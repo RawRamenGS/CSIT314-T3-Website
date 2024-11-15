@@ -26,7 +26,7 @@ class SearchUserAccountEntity{
                 $stmt->close();
                 return $users; // Return the array of user data
             } else {
-                return "User does not found";
+                return "User not found";
             }
     }
 }

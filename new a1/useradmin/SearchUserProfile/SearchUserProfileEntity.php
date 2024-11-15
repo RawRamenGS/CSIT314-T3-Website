@@ -26,7 +26,7 @@ class SearchUserProfileEntity{
                 $stmt->close();
                 return $users; // Return the array of user data
             } else {
-                return "Profile does not found";
+                return "User not found";
             }
     }
 }

@@ -17,7 +17,7 @@
             if($stmt->execute()){
                 return true;
             }else{
-                return "Profile was recently active or already suspend";
+                return "User profile already suspended";
             }
         }
     }

@@ -17,7 +17,7 @@
             if($stmt->execute()){
                 return true;
             }else{
-                return "User was recently active or already suspend";
+                return "User account already suspended";
             }
         }
     }

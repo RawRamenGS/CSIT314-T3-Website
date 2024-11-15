@@ -9,7 +9,7 @@ class LoginEntity {
         $this->conn = $conn;
     }
 
-    public function loginUserAdmin($username, $password) {
+    public function loginUser($username, $password) {
         // Prepare statement to check user login and suspension status in a single query
         $stmt = $this->conn->prepare("SELECT userprofiles.Name, useraccount.status, useraccount.id, useraccount.username
                                       FROM useraccount 

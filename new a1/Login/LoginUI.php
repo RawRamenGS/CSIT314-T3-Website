@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = htmlspecialchars($_POST['password']);
 
     $controller = new AdminLoginController();
-    $result = $controller->loginUserAdmin($username, $password);
+    $result = $controller->loginUser($username, $password);
 
     if (is_array($result) && !empty($result)) {
         if ($result['Name'] == "UserAdmin") {
