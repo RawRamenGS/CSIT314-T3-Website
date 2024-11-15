@@ -1,7 +1,7 @@
 <?php
  require_once('../connect.php');
 
- class FavEntity{
+ class ViewBuyerFavListingEntity{
     public function __construct(){
         global $conn;
         $this->conn = $conn;

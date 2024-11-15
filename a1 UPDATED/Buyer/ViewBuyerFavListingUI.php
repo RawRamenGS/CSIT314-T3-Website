@@ -1,7 +1,7 @@
 <?php
 session_start();
- require_once ('FavController.php');
- $controller = new FavController();
+ require_once ('ViewBuyerFavListingController.php');
+ $controller = new ViewBuyerFavListingController();
  $favs = $controller->getfavCar($_SESSION['id']);
 
 ?>
@@ -11,7 +11,7 @@ session_start();
     <meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Favourite Car Listings</title>
-    <link rel="stylesheet" href="ViewBuyerFavListingUi.css">
+    <link rel="stylesheet" href="ViewBuyerFavListingUI.css">
 </head>
 <body>
     <!-- Header -->

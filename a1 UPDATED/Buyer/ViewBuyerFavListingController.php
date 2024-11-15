@@ -1,15 +1,15 @@
 <?php
-require_once('FavEntity.php');
+require_once('ViewBuyerFavListingEntity.php');
 
-class FavController {
+class ViewBuyerFavListingController {
     
     public function getfavCar($userId) {
-        $favEntity = new FavEntity();
+        $favEntity = new ViewBuyerFavListingEntity();
         return $favEntity->getfavCar($userId);
     }
 
     public function searchFavCars($userId, $searchTerm) {
-        $favEntity = new FavEntity();
+        $favEntity = new ViewBuyerFavListingEntity();
         return $favEntity->searchFavCars($userId, $searchTerm);
     }
 }
