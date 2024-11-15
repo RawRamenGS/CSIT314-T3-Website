@@ -1,5 +1,13 @@
 <?php
 require_once 'ManageUsedCarListingEntity.php';
+if ($_SERVER["REQUEST_METHOD"] == "GET") {
+    // Check if the request is for deletion
+    if (isset($_GET['carID'])) {
+        $carID = trim($_GET['carID']);
+        
+        // Create an instance of the controller class
+        $controller = new ManageUsedCarListingController();
+        
         // Call the delete method
         $result = $controller->deleteCarListing($carID);
 
@@ -18,9 +26,9 @@ require_once 'ManageUsedCarListingEntity.php';
 }
 
 class ManageUsedCarListingController {
-    public function getfavcar(){
+    public function getlisting(){
         $entity = new ManageUsedCarListingEntity();
-        return $entity->getfavcar();
+        return $entity->getlisting();
     }
 	
 	public function deleteCarListing($carID) {
