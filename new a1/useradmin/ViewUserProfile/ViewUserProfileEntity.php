@@ -9,20 +9,20 @@ class ViewUserProfileEntity {
         $this->conn = $conn;
     }
 
-    public function getAllUsers() {
+    public function retrieveAllProfiles() {
         // Prepare and execute the query to select all users
         $stmt = $this->conn->prepare("SELECT profileId, Name, Description, status FROM userprofiles");
         $stmt->execute();
         $result = $stmt->get_result();
 
         // Fetch all rows as an array of associative arrays
-        $users = [];
+        $profiles = [];
         while ($row = $result->fetch_assoc()) {
-            $users[] = $row;
+            $profiles[] = $row;
         }
 
         $stmt->close();
-        return $users; // Return the array of user data
+        return $profiles; // Return the array of user data
     }
 }
 
