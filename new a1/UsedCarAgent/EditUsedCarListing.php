@@ -39,13 +39,13 @@ $carID = $_GET['carID'];
 					<input type="hidden" id="carID" name="carID" value="<?= htmlspecialchars($carID) ?>">
                     <label for="name">Name</label>
                     <!-- PHP Takes over here, EXAMPLE USE value="Hello" in <input type.... placeholder="" value=""> for the name-->
-                    <input type="text" id="name" name="carName" placeholder="Enter item name">
+                    <input type="text" required id="name" name="carName" placeholder="Enter item name">
 
                     <label for="price">Price</label>
-                    <input type="text" id="price" name="price" placeholder="Enter item price">
+                    <input type="text" required id="price" name="price" placeholder="Enter item price">
 
                     <label for="description">Description</label>
-                    <textarea id="description" name="description" placeholder="Enter item description"></textarea>
+                    <textarea id="description" required name="description" placeholder="Enter item description"></textarea>
 
                     <button type="submit" class="editBtn">Save</button>
                     <a href="ManageUsedCarListing.php"><button type="button" class="cancelBtn">Cancel</button></a>
